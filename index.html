@@ -1,13 +1,1296 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ETH-Express</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ETH-Express | Autoteile & Kfz-Zubehör</title>
+
+  <meta
+    name="description"
+    content="ETH-Express – Autoteile und Kfz-Zubehör in Berlin und Umgebung. Persönlicher Service, schnelle Bestellung, Lieferung und Abholung."
+  >
+
+  <style>
+    :root {
+      --black: #080808;
+      --dark: #111111;
+      --card: #171717;
+      --red: #e10600;
+      --red-light: #ff1b12;
+      --white: #ffffff;
+      --gray: #c7c7c7;
+      --line: rgba(255,255,255,0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8,8,8,0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .brand span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e5e5;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      padding: 12px 18px;
+      border-radius: 11px;
+      font-weight: 700;
+      border: 1px solid var(--red);
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: var(--red-light);
+      border-color: var(--red-light);
+      transform: translateY(-1px);
+    }
+
+    .button.outline {
+      background: transparent;
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 55px 0 45px;
+      background:
+        radial-gradient(
+          circle at 88% 15%,
+          rgba(225,6,0,0.25),
+          transparent 24%
+        ),
+        linear-gradient(
+          180deg,
+          #080808 0%,
+          #111111 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -170px;
+      top: -160px;
+      border: 18px solid rgba(225,6,0,0.13);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0 auto 17px;
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.02;
+      font-weight: 750;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: #e4e4e4;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    /* LOGO BEREICH */
+
+    .logo-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      color: #050505;
+      border-radius: 22px;
+      padding: 30px 24px 26px;
+      box-shadow: 0 25px 55px rgba(0,0,0,0.38);
+    }
+
+    .eth-logo {
+      width: min(720px, 100%);
+      margin: auto;
+    }
+
+    .logo-tagline {
+      color: var(--red);
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: 1px;
+      margin-top: 7px;
+      font-size: 17px;
+    }
+
+    .logo-category {
+      color: #111;
+      margin-top: 8px;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 1.5px;
+    }
+
+    /* SCHNELLE INFOS */
+
+    .quick-info {
+      background: #0c0c0c;
+      border-top: 1px solid rgba(225,6,0,0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quick-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      min-height: 100px;
+      padding: 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .quick-item:last-child {
+      border-right: none;
+    }
+
+    .quick-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .quick-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .quick-item strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 750;
+    }
+
+    .quick-item span {
+      display: block;
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    /* SEKTIONEN */
+
+    section.content {
+      padding: 75px 0;
+    }
+
+    .section-label {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 13px;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+    }
+
+    .section-description {
+      margin: 0;
+      color: var(--gray);
+      font-size: 16px;
+      max-width: 720px;
+    }
+
+    /* ÜBER UNS */
+
+    .about {
+      background: #0f0f0f;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .about-title span {
+      color: var(--red);
+    }
+
+    .about-box {
+      background: linear-gradient(
+        180deg,
+        #171717,
+        #121212
+      );
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--red);
+      border-radius: 17px;
+      padding: 28px;
+    }
+
+    .about-box p {
+      margin: 0;
+      color: #eeeeee;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .about-box strong {
+      color: var(--white);
+      font-weight: 750;
+    }
+
+    /* LEISTUNGEN */
+
+    .services {
+      background: #080808;
+    }
+
+    .services-head {
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(
+        180deg,
+        #171717,
+        #111111
+      );
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 25px;
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      background: rgba(225,6,0,0.08);
+      border: 1px solid rgba(225,6,0,0.28);
+      border-radius: 13px;
+      margin-bottom: 17px;
+    }
+
+    .card-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* BESTELLUNG */
+
+    .order {
+      background: #111111;
+    }
+
+    .steps {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      background: #181818;
+      border-top: 3px solid var(--red);
+      padding: 25px;
+    }
+
+    .step-number {
+      color: var(--red);
+      font-size: 26px;
+      font-weight: 750;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    /* KONTAKT */
+
+    .contact {
+      background: #0b0b0b;
+    }
+
+    .contact-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: #151515;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 28px;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .contact-row {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-row small {
+      display: block;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-row strong {
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .contact-red {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        135deg,
+        #e10600,
+        #b90000
+      );
+      border-radius: 17px;
+      padding: 30px;
+    }
+
+    .contact-red::after {
+      content: "ETH";
+      position: absolute;
+      right: -20px;
+      bottom: -65px;
+      font-size: 145px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.13);
+      line-height: 1;
+    }
+
+    .contact-red h3,
+    .contact-red p,
+    .contact-red a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-red h3 {
+      margin: 0 0 12px;
+      font-size: 27px;
+      line-height: 1.15;
+    }
+
+    .contact-red p {
+      margin: 0 0 21px;
+      font-size: 15px;
+    }
+
+    .contact-red .button {
+      background: #090909;
+      border-color: #090909;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #060606;
+      padding: 27px 0 35px;
+      color: #a8a8a8;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* HANDY */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .cards,
+      .steps,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-item {
+        justify-content: flex-start;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .quick-item:last-child {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        min-height: 64px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      header .button {
+        font-size: 13px;
+        padding: 9px 12px;
+      }
+
+      .hero {
+        padding: 35px 0 30px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .logo-box {
+        border-radius: 17px;
+        padding: 20px 12px;
+      }
+
+      .logo-tagline {
+        font-size: 14px;
+      }
+
+      .logo-category {
+        font-size: 12px;
+      }
+
+      section.content {
+        padding: 58px 0;
+      }
+
+      .about-box {
+        padding: 22px;
+      }
+
+      .about-box p {
+        font-size: 15.5px;
+      }
+
+      .contact-red h3 {
+        font-size: 23px;
+      }
+    }
+
+  </style>
 </head>
-<body style="background:#080808;color:white;font-family:Arial;text-align:center;padding:60px 20px">
-<h1 style="color:#e10600">ETH-EXPRESS</h1>
-<h2>Autoteile & Kfz-Zubehör</h2>
-<p>Berlin & Umgebung</p>
+
+
+<body>
+
+<header>
+  <div class="wrap nav">
+
+    <a class="brand" href="#top">
+      ETH<span>-EXPRESS</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#bestellen">Bestellen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a
+      class="button"
+      href="https://wa.me/491783957461"
+      target="_blank"
+      rel="noopener"
+    >
+      WhatsApp
+    </a>
+
+  </div>
+</header>
+
+
+<main id="top">
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="wrap hero-content">
+
+      <div class="eyebrow">
+        Express Teile Handel
+      </div>
+
+      <h1>
+        Autoteile & Kfz-Zubehör
+      </h1>
+
+      <p class="hero-description">
+        Schnell, zuverlässig und unkompliziert:
+        ETH-Express unterstützt Sie bei der Suche nach
+        passenden Autoteilen und Kfz-Zubehör –
+        mit persönlichem Service sowie Lieferung oder Abholung.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="button"
+          href="https://wa.me/491783957461"
+          target="_blank"
+          rel="noopener"
+        >
+          Jetzt Teile anfragen
+        </a>
+
+        <a class="button outline" href="#ueber-uns">
+          Mehr erfahren
+        </a>
+
+      </div>
+
+
+      <!-- LOGO -->
+
+      <div class="logo-box">
+
+        <svg
+          class="eth-logo"
+          viewBox="0 0 900 330"
+          role="img"
+          aria-label="ETH Express Teile Handel"
+        >
+
+          <!-- roter Balken links -->
+
+          <polygon
+            points="80,62 285,62 265,100 60,100"
+            fill="#e10600"
+          />
+
+
+          <!-- ETH Schrift -->
+
+          <text
+            x="55"
+            y="235"
+            font-family="Arial Black, Arial, sans-serif"
+            font-size="200"
+            font-weight="900"
+            font-style="italic"
+            letter-spacing="-10"
+            fill="#050505"
+          >
+            ETH
+          </text>
+
+
+          <!-- roter Bogen -->
+
+          <path
+            d="
+              M675 58
+              A135 135 0 0 1
+              795 218
+            "
+            fill="none"
+            stroke="#e10600"
+            stroke-width="28"
+          />
+
+
+          <!-- kleine weiße Markierungen -->
+
+          <line
+            x1="704"
+            y1="72"
+            x2="713"
+            y2="96"
+            stroke="#ffffff"
+            stroke-width="6"
+          />
+
+          <line
+            x1="733"
+            y1="84"
+            x2="741"
+            y2="108"
+            stroke="#ffffff"
+            stroke-width="6"
+          />
+
+          <line
+            x1="760"
+            y1="104"
+            x2="768"
+            y2="127"
+            stroke="#ffffff"
+            stroke-width="6"
+          />
+
+
+          <!-- Express Teile Handel -->
+
+          <text
+            x="75"
+            y="302"
+            font-family="Arial Black, Arial, sans-serif"
+            font-size="44"
+            font-weight="800"
+            font-style="italic"
+            letter-spacing="7"
+            fill="#080808"
+          >
+            EXPRESS TEILE HANDEL
+          </text>
+
+        </svg>
+
+
+        <div class="logo-tagline">
+          — TEILE, DIE BEWEGEN. —
+        </div>
+
+        <div class="logo-category">
+          AUTOTEILE & KFZ-ZUBEHÖR
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INFO LEISTE -->
+
+  <div class="quick-info">
+
+    <div class="wrap quick-grid">
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path
+              d="M12 21s7-6.2 7-12A7 7 0 1 0 5 9c0 5.8 7 12 7 12Z"
+            />
+            <circle cx="12" cy="9" r="2.3"/>
+          </svg>
+
+        </div>
+
+        <div>
+          <strong>Berlin & Umgebung</strong>
+          <span>Persönlich für Sie da</span>
+        </div>
+
+      </div>
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M3 6h11v10H3z"/>
+            <path d="M14 9h3l3 3v4h-6z"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="17" cy="18" r="2"/>
+          </svg>
+
+        </div>
+
+        <div>
+          <strong>Lieferung & Abholung</strong>
+          <span>Schnell und unkompliziert</span>
+        </div>
+
+      </div>
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path d="M4 17v-6l4-4h7l5 5v5"/>
+            <circle cx="8" cy="17" r="2"/>
+            <circle cx="18" cy="17" r="2"/>
+            <path d="M10 17h6"/>
+          </svg>
+
+        </div>
+
+        <div>
+          <strong>Schneller Service</strong>
+          <span>Zuverlässig. Kompetent.</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ÜBER UNS -->
+
+  <section class="content about" id="ueber-uns">
+
+    <div class="wrap about-grid">
+
+      <div>
+
+        <div class="section-label">
+          Über uns
+        </div>
+
+        <h2 class="section-title about-title">
+          Jung. Dynamisch.<br>
+          <span>Persönlich.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <p>
+          <strong>
+            ETH-Express ist ein junges, dynamisches Team
+            mit Fokus auf Autoteile und Kfz-Zubehör.
+          </strong>
+
+          Wir unterstützen Privat- und Gewerbekunden dabei,
+          schnell und unkompliziert die passenden Teile
+          für ihr Fahrzeug zu finden.
+
+          Dabei setzen wir auf persönliche Beratung,
+          zuverlässigen Service und eine einfache,
+          faire Abwicklung.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LEISTUNGEN -->
+
+  <section class="content services" id="leistungen">
+
+    <div class="wrap">
+
+      <div class="services-head">
+
+        <div class="section-label">
+          Unsere Leistungen
+        </div>
+
+        <h2 class="section-title">
+          Alles rund um Ihr Fahrzeug.
+        </h2>
+
+        <p class="section-description">
+          Von Verschleißteilen bis Zubehör –
+          wir unterstützen Sie bei der Suche
+          nach dem passenden Teil.
+        </p>
+
+      </div>
+
+
+      <div class="cards">
+
+
+        <article class="card">
+
+          <div class="card-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <circle cx="12" cy="12" r="7"/>
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 5v2"/>
+              <path d="M19 12h-2"/>
+              <path d="M12 19v-2"/>
+              <path d="M5 12h2"/>
+            </svg>
+
+          </div>
+
+          <h3>Bremsen</h3>
+
+          <p>
+            Bremsscheiben, Bremsbeläge
+            und weitere Komponenten.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <rect x="6" y="4" width="12" height="16"/>
+              <path d="M9 9h6"/>
+              <path d="M9 13h6"/>
+              <path d="M9 17h6"/>
+            </svg>
+
+          </div>
+
+          <h3>Filter & Wartung</h3>
+
+          <p>
+            Öl-, Luft- und Innenraumfilter
+            sowie weitere Wartungsteile.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <rect
+                x="4"
+                y="7"
+                width="16"
+                height="12"
+                rx="1"
+              />
+              <path d="M8 5v2"/>
+              <path d="M16 5v2"/>
+              <path d="M8 13h4"/>
+              <path d="M10 11v4"/>
+              <path d="M15 13h3"/>
+            </svg>
+
+          </div>
+
+          <h3>Batterien & Zubehör</h3>
+
+          <p>
+            Batterien und passendes Kfz-Zubehör
+            für Ihren Bedarf.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BESTELLABLAUF -->
+
+  <section class="content order" id="bestellen">
+
+    <div class="wrap">
+
+      <div class="section-label">
+        So funktioniert's
+      </div>
+
+      <h2 class="section-title">
+        Schnell zum passenden Teil.
+      </h2>
+
+      <p class="section-description">
+        Eine kurze Anfrage reicht –
+        wir kümmern uns um den Rest.
+      </p>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>Anfrage senden</h3>
+
+          <p>
+            Fahrzeugdaten und das gesuchte Teil
+            einfach per WhatsApp schicken.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>Passendes Teil finden</h3>
+
+          <p>
+            Wir prüfen Ihre Angaben und helfen
+            bei der Auswahl des passenden Artikels.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>Liefern oder abholen</h3>
+
+          <p>
+            Nach Absprache bequem abholen
+            oder in Berlin und Umgebung liefern lassen.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- KONTAKT -->
+
+  <section class="content contact" id="kontakt">
+
+    <div class="wrap">
+
+      <div class="section-label">
+        Kontakt
+      </div>
+
+      <h2 class="section-title">
+        Wir sind für Sie da.
+      </h2>
+
+      <p class="section-description">
+        Schreiben Sie uns einfach per WhatsApp
+        oder besuchen Sie uns vor Ort.
+      </p>
+
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <h3>ETH-Express</h3>
+
+
+          <div class="contact-row">
+
+            <small>
+              WhatsApp / Telefon
+            </small>
+
+            <strong>
+              0178 3957461
+            </strong>
+
+          </div>
+
+
+          <div class="contact-row">
+
+            <small>
+              Webseite
+            </small>
+
+            <strong>
+              www.eth-express.de
+            </strong>
+
+          </div>
+
+
+          <div class="contact-row">
+
+            <small>
+              Adresse
+            </small>
+
+            <strong>
+              Brunsbütteler Damm 134<br>
+              Halle D-5 · 13581 Berlin
+            </strong>
+
+          </div>
+
+
+          <div class="contact-row">
+
+            <small>
+              Servicegebiet
+            </small>
+
+            <strong>
+              Berlin & Umgebung
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-red">
+
+          <h3>
+            Sie suchen ein bestimmtes Kfz-Teil?
+          </h3>
+
+          <p>
+            Schicken Sie uns Ihre Fahrzeugdaten
+            und das gesuchte Teil.
+            Wir helfen Ihnen schnell und unkompliziert weiter.
+          </p>
+
+          <a
+            class="button"
+            href="https://wa.me/491783957461"
+            target="_blank"
+            rel="noopener"
+          >
+            Jetzt per WhatsApp anfragen
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap footer-inner">
+
+    <div>
+      © 2026 ETH-Express · Express Teile Handel
+    </div>
+
+    <div>
+      Autoteile & Kfz-Zubehör · Berlin
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
