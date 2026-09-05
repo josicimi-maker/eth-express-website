@@ -3,29 +3,413 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>ETH-Express | Autoteile & Kfz-Zubehör</title>
-<meta name="description" content="ETH-Express – Autoteile & Kfz-Zubehör in Berlin und Umgebung.">
+
+<meta
+  name="description"
+  content="ETH-Express – Autoteile & Kfz-Zubehör in Berlin und Umgebung."
+>
+
 <style>
-:root{--bg:#080808;--dark:#111;--card:#171717;--red:#e10600;--muted:#bdbdbd;--line:rgba(255,255,255,.1)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:19px;font-weight:800;letter-spacing:.8px}.brand span{color:var(--red)}nav{display:flex;gap:22px;font-size:14px;color:#ddd}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);padding:11px 17px;border-radius:11px;font-weight:750;border:1px solid var(--red)}.btn.alt{background:transparent;border-color:rgba(255,255,255,.24)}
-.hero{padding:46px 0 40px;background:radial-gradient(circle at 88% 14%,rgba(225,6,0,.24),transparent 24%),linear-gradient(#080808,#101010);text-align:center}.kicker,.label{color:var(--red);font-size:12px;font-weight:850;letter-spacing:1.7px;text-transform:uppercase}h1{margin:8px auto 14px;font-size:clamp(36px,7vw,64px);line-height:1.04;font-weight:760}.lead{max-width:720px;margin:0 auto 24px;color:#e4e4e4;font-size:16px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
-.logo-shell{max-width:800px;margin:auto;background:#fff;border-radius:20px;padding:7px;box-shadow:0 24px 55px rgba(0,0,0,.4)}.logo-shell img{display:block;width:100%;height:auto;border-radius:13px}
-.featurebar{background:#0c0c0c;border-top:1px solid rgba(225,6,0,.78);border-bottom:1px solid var(--line)}.features{display:grid;grid-template-columns:repeat(3,1fr)}.feature{padding:19px 16px;text-align:center;border-right:1px solid var(--line)}.feature:last-child{border-right:0}.feature strong{display:block;font-size:15px}.feature span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
-section{padding:64px 0}.section-title{margin:8px 0 12px;font-size:clamp(28px,5vw,42px);line-height:1.12;font-weight:730}.section-copy{margin:0;color:var(--muted);max-width:720px}.about{background:#0f0f0f}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:center}.about-box{background:linear-gradient(#171717,#121212);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:16px;padding:25px 26px}.about-box p{margin:0;color:#eee;font-size:16.5px;line-height:1.75}
-.cards,.steps,.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}.card,.step,.contact-card{background:linear-gradient(#171717,#111);border:1px solid var(--line);border-radius:16px;padding:24px}.card h3,.step h3{margin:0 0 7px;font-size:18px}.card p,.step p{margin:0;color:var(--muted);font-size:14.5px}.order{background:#111}.step{border-top:3px solid var(--red)}.nr{color:var(--red);font-size:25px;font-weight:800;margin-bottom:9px}
-.contact{background:#090909}.contact-grid{grid-template-columns:1fr 1fr}.contact-card h3{margin:0 0 14px;font-size:21px}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row small{display:block;color:var(--red);font-size:11px;font-weight:850;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}.cta{background:linear-gradient(135deg,#e10600,#b90000);border-radius:16px;padding:28px}.cta h3{margin:0 0 10px;font-size:25px;line-height:1.14}.cta p{margin:0 0 20px}.cta .btn{background:#090909;border-color:#090909}
-footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);color:#9f9f9f;font-size:13px}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media(max-width:820px){nav{display:none}.features,.about-grid,.cards,.steps,.contact-grid{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}}
-@media(max-width:600px){.brand{font-size:17px}header .btn{font-size:13px;padding:9px 12px}.hero{padding:34px 0 30px}h1{font-size:39px}.lead{font-size:15px}section{padding:54px 0}.about-box{padding:21px}}
+:root{
+  --bg:#080808;
+  --dark:#111;
+  --card:#171717;
+  --red:#e10600;
+  --muted:#bdbdbd;
+  --line:rgba(255,255,255,.1);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(8,8,8,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:.8px;
+}
+
+.brand span{
+  color:var(--red);
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  color:#ddd;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  padding:11px 17px;
+  border-radius:11px;
+  font-weight:750;
+  border:1px solid var(--red);
+}
+
+.btn.alt{
+  background:transparent;
+  border-color:rgba(255,255,255,.24);
+}
+
+.hero{
+  padding:46px 0 40px;
+  background:
+    radial-gradient(
+      circle at 88% 14%,
+      rgba(225,6,0,.24),
+      transparent 24%
+    ),
+    linear-gradient(#080808,#101010);
+  text-align:center;
+}
+
+.kicker,
+.label{
+  color:var(--red);
+  font-size:12px;
+  font-weight:850;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
+}
+
+h1{
+  margin:8px auto 14px;
+  font-size:clamp(36px,7vw,64px);
+  line-height:1.04;
+  font-weight:760;
+}
+
+.lead{
+  max-width:720px;
+  margin:0 auto 24px;
+  color:#e4e4e4;
+  font-size:16px;
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+
+.logo-shell{
+  max-width:800px;
+  margin:auto;
+  background:#fff;
+  border-radius:20px;
+  padding:7px;
+  box-shadow:0 24px 55px rgba(0,0,0,.4);
+  overflow:hidden;
+}
+
+.logo-shell svg{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:13px;
+}
+
+.featurebar{
+  background:#0c0c0c;
+  border-top:1px solid rgba(225,6,0,.78);
+  border-bottom:1px solid var(--line);
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.feature{
+  padding:19px 16px;
+  text-align:center;
+  border-right:1px solid var(--line);
+}
+
+.feature:last-child{
+  border-right:0;
+}
+
+.feature strong{
+  display:block;
+  font-size:15px;
+}
+
+.feature span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:2px;
+}
+
+section{
+  padding:64px 0;
+}
+
+.section-title{
+  margin:8px 0 12px;
+  font-size:clamp(28px,5vw,42px);
+  line-height:1.12;
+  font-weight:730;
+}
+
+.section-copy{
+  margin:0;
+  color:var(--muted);
+  max-width:720px;
+}
+
+.about{
+  background:#0f0f0f;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:32px;
+  align-items:center;
+}
+
+.about-box{
+  background:linear-gradient(#171717,#121212);
+  border:1px solid var(--line);
+  border-left:5px solid var(--red);
+  border-radius:16px;
+  padding:25px 26px;
+}
+
+.about-box p{
+  margin:0;
+  color:#eee;
+  font-size:16.5px;
+  line-height:1.75;
+}
+
+.cards,
+.steps,
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:26px;
+}
+
+.card,
+.step,
+.contact-card{
+  background:linear-gradient(#171717,#111);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+}
+
+.card h3,
+.step h3{
+  margin:0 0 7px;
+  font-size:18px;
+}
+
+.card p,
+.step p{
+  margin:0;
+  color:var(--muted);
+  font-size:14.5px;
+}
+
+.order{
+  background:#111;
+}
+
+.step{
+  border-top:3px solid var(--red);
+}
+
+.nr{
+  color:var(--red);
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:9px;
+}
+
+.contact{
+  background:#090909;
+}
+
+.contact-grid{
+  grid-template-columns:1fr 1fr;
+}
+
+.contact-card h3{
+  margin:0 0 14px;
+  font-size:21px;
+}
+
+.row{
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.row:last-child{
+  border-bottom:0;
+}
+
+.row small{
+  display:block;
+  color:var(--red);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:3px;
+}
+
+.cta{
+  background:linear-gradient(135deg,#e10600,#b90000);
+  border-radius:16px;
+  padding:28px;
+}
+
+.cta h3{
+  margin:0 0 10px;
+  font-size:25px;
+  line-height:1.14;
+}
+
+.cta p{
+  margin:0 0 20px;
+}
+
+.cta .btn{
+  background:#090909;
+  border-color:#090909;
+}
+
+footer{
+  padding:26px 0 34px;
+  background:#060606;
+  border-top:1px solid var(--line);
+  color:#9f9f9f;
+  font-size:13px;
+}
+
+.foot{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+@media(max-width:820px){
+
+  nav{
+    display:none;
+  }
+
+  .features,
+  .about-grid,
+  .cards,
+  .steps,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature{
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+}
+
+@media(max-width:600px){
+
+  .brand{
+    font-size:17px;
+  }
+
+  header .btn{
+    font-size:13px;
+    padding:9px 12px;
+  }
+
+  .hero{
+    padding:34px 0 30px;
+  }
+
+  h1{
+    font-size:39px;
+  }
+
+  .lead{
+    font-size:15px;
+  }
+
+  section{
+    padding:54px 0;
+  }
+
+  .about-box{
+    padding:21px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="wrap nav">
-    <a class="brand" href="#top">ETH<span>-EXPRESS</span></a>
+
+    <a class="brand" href="#top">
+      ETH<span>-EXPRESS</span>
+    </a>
 
     <nav>
       <a href="#ueber-uns">Über uns</a>
@@ -34,130 +418,343 @@ footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);c
       <a href="#kontakt">Kontakt</a>
     </nav>
 
-    <a class="btn" href="https://wa.me/491783957461" target="_blank" rel="noopener">
+    <a
+      class="btn"
+      href="https://wa.me/491783957461"
+      target="_blank"
+      rel="noopener"
+    >
       WhatsApp
     </a>
+
   </div>
+
 </header>
 
 <main id="top">
 
 <section class="hero">
+
   <div class="wrap">
 
-    <div class="kicker">Express Teile Handel</div>
+    <div class="kicker">
+      Express Teile Handel
+    </div>
 
-    <h1>Autoteile & Kfz-Zubehör</h1>
+    <h1>
+      Autoteile & Kfz-Zubehör
+    </h1>
 
     <p class="lead">
       Schnell, zuverlässig und unkompliziert:
-      Wir unterstützen Privat- und Gewerbekunden bei der Suche nach den passenden Teilen –
-      persönlich und ohne Umwege.
+      Wir unterstützen Privat- und Gewerbekunden bei der Suche
+      nach den passenden Teilen – persönlich und ohne Umwege.
     </p>
 
     <div class="actions">
-      <a class="btn" href="https://wa.me/491783957461" target="_blank" rel="noopener">
+
+      <a
+        class="btn"
+        href="https://wa.me/491783957461"
+        target="_blank"
+        rel="noopener"
+      >
         Jetzt Teile anfragen
       </a>
 
-      <a class="btn alt" href="#ueber-uns">
+      <a
+        class="btn alt"
+        href="#ueber-uns"
+      >
         Mehr erfahren
       </a>
+
     </div>
 
     <div class="logo-shell">
-      <img
-        src="data:image/webp;base64,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" 
-        alt="ETH Express Teile Handel – Teile, die bewegen. Autoteile & Kfz-Zubehör">
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 800 580"
+      >
+
+        <rect
+          width="800"
+          height="580"
+          fill="#ffffff"
+        />
+
+        <path
+          d="
+M724 538 L717 538 L709 542 L706 541 L706 544 L717 542 Z
+M480 509 L480 513 L492 512 L492 509 Z
+M686 493 L686 525 L691 525 L692 513 L695 513 L702 525 L707 525 L701 513 L706 507 L706 498 L699 493 Z
+M691 499 L699 498 L702 502 L701 506 L699 508 L693 509 L691 507 Z
+M659 493 L655 495 L651 500 L649 508 L650 516 L655 523 L665 526 L672 523 L676 518 L677 503 L672 495 L668 493 Z
+M662 497 L667 498 L672 505 L672 514 L666 521 L660 520 L655 513 L656 502 Z
+M618 493 L618 525 L623 525 L624 511 L635 511 L636 525 L641 525 L641 493 L636 493 L635 506 L624 506 L623 493 Z
+M591 493 L590 524 L609 525 L609 521 L597 521 L595 519 L596 511 L607 511 L607 507 L597 507 L595 505 L595 499 L608 498 L609 493 Z
+M560 493 L560 525 L578 524 L582 517 L581 512 L577 508 L580 505 L580 497 L573 493 Z
+M565 512 L574 511 L577 514 L577 517 L573 521 L567 521 L565 519 Z
+M567 497 L571 497 L576 502 L573 506 L567 507 L565 505 L565 499 Z
+M527 493 L528 520 L532 524 L538 526 L546 524 L549 521 L551 515 L551 494 L545 494 L545 517 L543 520 L537 521 L533 518 L532 515 L532 493 Z
+M498 493 L499 498 L512 499 L499 518 L498 525 L519 525 L519 521 L506 521 L504 519 L518 499 L519 493 Z
+M453 493 L453 498 L465 498 L466 500 L452 520 L452 525 L473 525 L474 521 L460 521 L459 518 L474 497 L474 494 Z
+M445 493 L427 493 L427 525 L432 525 L432 513 L434 511 L444 511 L444 507 L433 507 L432 499 L445 498 Z
+M395 493 L395 525 L400 525 L400 515 L403 511 L413 525 L419 525 L407 507 L418 493 L412 493 L401 507 L400 493 Z
+M353 494 L350 498 L350 502 L353 508 L347 514 L348 522 L355 526 L364 523 L373 525 L369 520 L372 509 L368 509 L366 515 L360 509 L364 505 L366 497 L362 493 Z
+M355 511 L363 519 L361 521 L357 522 L353 520 L352 514 Z
+M357 496 L362 499 L358 505 L354 500 Z
+M307 493 L307 525 L326 525 L326 521 L314 521 L312 519 L313 511 L324 511 L324 507 L314 507 L312 505 L312 499 L325 498 L325 493 Z
+M281 493 L281 525 L299 525 L299 521 L291 521 L286 519 L286 493 Z
+M266 493 L266 525 L271 525 L271 493 Z
+M238 493 L238 525 L257 525 L257 521 L245 521 L243 519 L244 511 L255 511 L255 507 L245 507 L243 505 L243 499 L256 498 L257 493 Z
+M208 493 L208 498 L217 499 L217 525 L221 525 L222 499 L230 498 L231 494 Z
+M184 493 L180 495 L176 500 L174 508 L175 516 L181 524 L190 526 L199 521 L202 515 L202 503 L197 495 L193 493 Z
+M187 497 L192 498 L197 504 L197 514 L190 521 L183 519 L180 515 L180 503 Z
+M147 493 L147 498 L155 499 L155 525 L160 525 L160 499 L169 498 L169 493 Z
+M116 493 L117 521 L120 524 L126 526 L136 523 L139 517 L139 493 L134 493 L134 516 L130 521 L125 521 L121 517 L121 493 Z
+M93 493 L82 525 L87 525 L90 518 L101 518 L104 525 L109 525 L99 493 Z
+M96 501 L100 511 L99 514 L93 514 L91 512 Z
+M667 484 L666 488 L669 489 L670 485 Z
+M658 484 L657 488 L660 489 L661 485 Z
+M133 306 L112 305 L107 344 L113 343 L114 333 L116 330 L127 330 L132 328 L136 324 L138 314 Z
+M120 310 L127 311 L131 316 L130 320 L123 325 L118 325 L116 323 L117 313 Z
+M740 304 L736 323 L734 344 L757 344 L759 338 L742 337 L746 304 Z
+M701 304 L695 344 L719 344 L721 338 L704 338 L703 330 L705 327 L720 326 L721 321 L706 321 L706 312 L708 310 L724 310 L725 304 Z
+M655 304 L648 343 L663 344 L676 340 L682 334 L685 327 L684 313 L680 308 L674 305 Z
+M673 312 L678 319 L676 330 L668 337 L658 338 L657 330 L660 312 L662 310 Z
+M607 304 L601 344 L608 343 L610 323 L612 318 L614 319 L625 342 L627 344 L632 344 L634 340 L639 305 L632 305 L629 328 L627 330 L615 306 L613 304 Z
+M580 304 L574 304 L571 308 L554 344 L560 344 L566 335 L580 335 L584 344 L590 344 L582 307 Z
+M576 313 L580 328 L569 329 L568 328 Z
+M517 304 L512 344 L518 343 L521 327 L537 327 L538 332 L536 343 L543 344 L549 304 L542 304 L540 319 L538 321 L524 321 L522 319 L524 304 Z
+M455 304 L449 344 L473 344 L475 338 L458 338 L457 330 L459 327 L474 327 L475 321 L459 320 L460 312 L462 310 L479 310 L479 304 Z
+M419 304 L413 343 L436 344 L438 343 L438 338 L421 337 L426 305 Z
+M404 304 L397 304 L391 341 L392 344 L397 344 L399 340 Z
+M360 304 L354 344 L378 344 L380 338 L363 338 L361 336 L362 329 L364 327 L379 326 L379 321 L365 321 L364 315 L367 310 L383 310 L384 305 Z
+M349 304 L319 304 L319 311 L329 311 L325 344 L332 343 L336 312 L338 310 L348 310 Z
+M270 304 L264 308 L262 312 L262 320 L267 325 L275 328 L278 331 L278 335 L275 338 L270 339 L262 333 L257 338 L265 344 L276 344 L284 338 L285 328 L282 324 L271 319 L268 315 L272 310 L278 310 L282 314 L287 309 L280 304 Z
+M234 304 L227 309 L225 317 L227 322 L240 329 L242 334 L239 338 L233 339 L226 333 L221 338 L229 344 L240 344 L247 339 L249 330 L244 323 L236 320 L232 316 L232 313 L235 310 L239 309 L246 314 L251 310 L244 304 Z
+M192 304 L190 308 L185 343 L210 344 L211 338 L194 338 L193 333 L195 327 L210 327 L211 321 L197 321 L197 311 L215 310 L215 304 Z
+M151 305 L145 343 L152 344 L154 331 L156 329 L159 329 L162 332 L166 343 L174 344 L168 329 L176 321 L176 310 L170 305 Z
+M158 310 L167 311 L169 313 L170 317 L167 322 L163 324 L155 323 L156 312 Z
+M67 305 L77 324 L61 344 L68 344 L80 330 L88 344 L95 344 L85 324 L100 305 L92 305 L82 318 L74 304 Z
+M33 304 L27 344 L51 344 L52 338 L36 338 L34 336 L35 329 L37 327 L51 327 L52 321 L38 321 L38 312 L40 310 L56 310 L56 304 Z
+M763 184 L730 187 L727 208 L721 228 L713 247 L697 273 L732 272 L746 248 L754 229 L760 208 Z
+M715 181 L694 184 L694 187 L713 190 L715 188 Z
+M33 273 L204 274 L219 235 L107 235 L103 233 L111 213 L212 213 L226 175 L69 175 L64 185 Z
+M77 152 L246 152 L262 112 L92 112 Z
+M491 111 L468 173 L434 273 L489 273 L511 212 L582 212 L583 213 L563 273 L617 273 L647 184 L674 111 L618 111 L597 172 L595 174 L525 174 L524 172 L546 111 Z
+M290 273 L346 273 L388 153 L446 152 L462 111 L288 111 L271 152 L332 153 Z
+M744 96 L716 111 L722 124 L728 144 L731 178 L764 176 L764 162 L761 139 L755 118 Z
+M707 96 L713 104 L729 95 Z
+M687 95 L694 105 L689 114 L701 110 L691 95 Z
+"
+          fill="#050505"
+          fill-rule="evenodd"
+        />
+
+        <path
+          d="
+M285 416 L279 417 L279 425 L277 430 L281 429 L285 421 Z
+M646 415 L644 416 L643 421 L645 423 L648 423 L651 418 Z
+M671 404 L671 407 L758 407 L757 403 Z
+M26 404 L26 407 L31 408 L119 407 L119 403 Z
+M612 389 L608 423 L613 423 L617 402 L621 407 L627 422 L633 423 L639 389 L633 388 L629 410 L619 389 Z
+M584 388 L579 423 L599 423 L600 417 L587 417 L586 413 L588 408 L599 408 L601 404 L589 403 L589 395 L603 394 L604 388 Z
+M557 388 L550 393 L546 400 L545 413 L550 421 L554 423 L563 423 L571 417 L573 405 L561 405 L560 409 L565 410 L566 413 L562 417 L556 417 L552 413 L552 402 L559 394 L564 394 L569 399 L573 397 L574 394 L567 388 Z
+M521 388 L517 408 L516 423 L536 423 L537 417 L524 417 L523 412 L525 408 L537 408 L537 403 L526 402 L525 399 L527 394 L540 394 L541 388 Z
+M472 388 L471 393 L475 423 L482 422 L491 401 L494 422 L500 423 L514 389 L507 389 L499 411 L497 406 L496 389 L490 388 L480 411 L478 389 Z
+M446 388 L444 390 L440 423 L460 423 L462 418 L461 417 L448 417 L447 411 L449 408 L461 408 L462 403 L451 403 L449 399 L451 394 L465 394 L465 388 Z
+M412 388 L407 422 L426 422 L433 416 L433 408 L429 405 L434 399 L434 393 L430 389 Z
+M415 409 L417 407 L424 408 L427 413 L423 417 L415 417 Z
+M416 401 L418 394 L425 394 L428 397 L427 400 L423 403 L418 403 Z
+M365 388 L360 423 L380 423 L382 419 L381 417 L368 417 L367 414 L369 408 L381 408 L382 404 L370 403 L369 400 L372 394 L385 394 L386 389 Z
+M355 388 L349 389 L344 421 L345 423 L351 422 Z
+M315 388 L310 414 L310 423 L327 422 L331 420 L338 411 L338 395 L331 389 Z
+M321 394 L329 395 L333 401 L331 411 L324 417 L317 416 L319 396 Z
+M255 388 L252 401 L250 423 L270 423 L272 418 L258 417 L257 410 L259 408 L271 408 L271 403 L260 403 L259 397 L261 394 L275 394 L275 388 Z
+M228 388 L226 391 L222 423 L243 423 L243 417 L229 416 L233 389 Z
+M217 388 L211 389 L206 418 L207 423 L213 422 Z
+M182 388 L177 423 L197 423 L199 417 L185 417 L184 413 L186 408 L198 408 L199 403 L187 403 L186 400 L189 394 L202 394 L202 389 Z
+M174 388 L149 389 L149 394 L156 394 L158 396 L154 423 L160 423 L164 396 L166 394 L174 394 Z
+M764 183 L729 187 L726 209 L720 228 L710 251 L696 274 L731 274 L743 255 L755 228 L761 207 Z
+M76 152 L245 153 L247 152 L262 111 L92 111 Z
+M744 95 L715 111 L724 132 L728 148 L730 179 L764 176 L764 153 L761 136 L754 114 Z
+M632 59 L646 65 L648 69 L654 69 L658 72 L658 75 L661 74 L674 83 L670 88 L676 84 L694 106 L688 114 L689 115 L702 110 L689 91 L678 80 L676 81 L675 78 L669 73 L647 61 L634 57 Z
+M627 56 L612 55 L620 57 L617 69 L618 75 L628 58 Z
+M530 73 L548 61 L576 49 L597 45 L622 45 L636 47 L641 38 L642 41 L639 47 L640 49 L649 51 L661 57 L665 55 L665 58 L676 65 L684 72 L695 64 L696 65 L688 75 L700 87 L712 105 L741 89 L721 64 L711 55 L696 46 L667 34 L637 29 L607 31 L587 36 L572 42 L550 55 Z
+"
+          fill="#e10600"
+          fill-rule="evenodd"
+        />
+
+      </svg>
+
     </div>
 
   </div>
+
 </section>
 
 <div class="featurebar">
+
   <div class="wrap features">
+
     <div class="feature">
-      <strong>Berlin & Umgebung</strong>
-      <span>Persönlich für Sie da</span>
+
+      <strong>
+        Berlin & Umgebung
+      </strong>
+
+      <span>
+        Persönlich für Sie da
+      </span>
+
     </div>
 
     <div class="feature">
-      <strong>Lieferung & Abholung</strong>
-      <span>Schnell und unkompliziert</span>
+
+      <strong>
+        Lieferung & Abholung
+      </strong>
+
+      <span>
+        Schnell und unkompliziert
+      </span>
+
     </div>
 
     <div class="feature">
-      <strong>Schneller Service</strong>
-      <span>Zuverlässig. Kompetent.</span>
+
+      <strong>
+        Schneller Service
+      </strong>
+
+      <span>
+        Zuverlässig. Kompetent.
+      </span>
+
     </div>
+
   </div>
+
 </div>
 
-<section class="about" id="ueber-uns">
+<section
+  class="about"
+  id="ueber-uns"
+>
+
   <div class="wrap about-grid">
 
     <div>
-      <div class="label">Über uns</div>
-      <h2 class="section-title">Über ETH-Express</h2>
+
+      <div class="label">
+        Über uns
+      </div>
+
+      <h2 class="section-title">
+        Über ETH-Express
+      </h2>
+
     </div>
 
     <div class="about-box">
+
       <p>
+
         <strong>
-          Wir sind ein junges, dynamisches Team aus Berlin und haben uns auf
-          Autoteile und Kfz-Zubehör spezialisiert.
+          Wir sind ein junges, dynamisches Team aus Berlin
+          und haben uns auf Autoteile und Kfz-Zubehör spezialisiert.
         </strong>
-        Unser Ziel ist es, schnell das passende Teil für Ihr Fahrzeug zu finden –
-        mit persönlicher Beratung, zuverlässigem Service und einer unkomplizierten Abwicklung.
+
+        Unser Ziel ist es, schnell das passende Teil für Ihr Fahrzeug
+        zu finden – mit persönlicher Beratung,
+        zuverlässigem Service und einer unkomplizierten Abwicklung.
+
       </p>
+
     </div>
 
   </div>
+
 </section>
 
 <section id="leistungen">
+
   <div class="wrap">
 
-    <div class="label">Unsere Leistungen</div>
+    <div class="label">
+      Unsere Leistungen
+    </div>
 
-    <h2 class="section-title">Was wir für Sie tun.</h2>
+    <h2 class="section-title">
+      Was wir für Sie tun.
+    </h2>
 
     <p class="section-copy">
-      Kurze Wege, persönliche Beratung und die passenden Teile für Ihr Fahrzeug.
+      Kurze Wege, persönliche Beratung und die passenden Teile
+      für Ihr Fahrzeug.
     </p>
 
     <div class="cards">
 
       <article class="card">
-        <h3>Autoteile & Verschleißteile</h3>
+
+        <h3>
+          Autoteile & Verschleißteile
+        </h3>
+
         <p>
-          Bremsen, Filter, Fahrwerk, Wartungsteile und vieles mehr.
+          Bremsen, Filter, Fahrwerk,
+          Wartungsteile und vieles mehr.
         </p>
+
       </article>
 
       <article class="card">
-        <h3>Kfz-Zubehör</h3>
+
+        <h3>
+          Kfz-Zubehör
+        </h3>
+
         <p>
-          Batterien und passendes Zubehör für Ihren täglichen Bedarf.
+          Batterien und passendes Zubehör
+          für Ihren täglichen Bedarf.
         </p>
+
       </article>
 
       <article class="card">
-        <h3>Lieferung & Abholung</h3>
+
+        <h3>
+          Lieferung & Abholung
+        </h3>
+
         <p>
-          Bequem abholen oder nach Absprache in Berlin und Umgebung liefern lassen.
+          Bequem abholen oder nach Absprache
+          in Berlin und Umgebung liefern lassen.
         </p>
+
       </article>
 
     </div>
 
   </div>
+
 </section>
 
-<section class="order" id="bestellen">
+<section
+  class="order"
+  id="bestellen"
+>
+
   <div class="wrap">
 
-    <div class="label">So funktioniert's</div>
+    <div class="label">
+      So funktioniert's
+    </div>
 
     <h2 class="section-title">
       In drei Schritten zum passenden Teil.
@@ -166,67 +763,131 @@ footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);c
     <div class="steps">
 
       <div class="step">
-        <div class="nr">01</div>
-        <h3>Anfrage senden</h3>
+
+        <div class="nr">
+          01
+        </div>
+
+        <h3>
+          Anfrage senden
+        </h3>
+
         <p>
-          Fahrzeugdaten und das gesuchte Teil einfach per WhatsApp schicken.
+          Fahrzeugdaten und das gesuchte Teil
+          einfach per WhatsApp schicken.
         </p>
+
       </div>
 
       <div class="step">
-        <div class="nr">02</div>
-        <h3>Passendes Teil finden</h3>
+
+        <div class="nr">
+          02
+        </div>
+
+        <h3>
+          Passendes Teil finden
+        </h3>
+
         <p>
-          Wir prüfen Ihre Angaben und unterstützen bei der Auswahl.
+          Wir prüfen Ihre Angaben
+          und unterstützen bei der Auswahl.
         </p>
+
       </div>
 
       <div class="step">
-        <div class="nr">03</div>
-        <h3>Liefern oder abholen</h3>
+
+        <div class="nr">
+          03
+        </div>
+
+        <h3>
+          Liefern oder abholen
+        </h3>
+
         <p>
-          Nach Absprache bequem abholen oder liefern lassen.
+          Nach Absprache bequem abholen
+          oder liefern lassen.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<section class="contact" id="kontakt">
+<section
+  class="contact"
+  id="kontakt"
+>
+
   <div class="wrap">
 
-    <div class="label">Kontakt</div>
+    <div class="label">
+      Kontakt
+    </div>
 
-    <h2 class="section-title">Direkt erreichbar.</h2>
+    <h2 class="section-title">
+      Direkt erreichbar.
+    </h2>
 
     <div class="contact-grid">
 
       <div class="contact-card">
 
-        <h3>ETH-Express</h3>
+        <h3>
+          ETH-Express
+        </h3>
 
         <div class="row">
-          <small>WhatsApp / Telefon</small>
-          <strong>0178 3957461</strong>
+
+          <small>
+            WhatsApp / Telefon
+          </small>
+
+          <strong>
+            0178 3957461
+          </strong>
+
         </div>
 
         <div class="row">
-          <small>Webseite</small>
-          <strong>www.eth-express.de</strong>
+
+          <small>
+            Webseite
+          </small>
+
+          <strong>
+            www.eth-express.de
+          </strong>
+
         </div>
 
         <div class="row">
-          <small>Adresse</small>
+
+          <small>
+            Adresse
+          </small>
+
           <strong>
             Brunsbütteler Damm 134 · Halle D-5 · 13581 Berlin
           </strong>
+
         </div>
 
         <div class="row">
-          <small>Servicegebiet</small>
-          <strong>Berlin & Umgebung</strong>
+
+          <small>
+            Servicegebiet
+          </small>
+
+          <strong>
+            Berlin & Umgebung
+          </strong>
+
         </div>
 
       </div>
@@ -256,11 +917,13 @@ footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);c
     </div>
 
   </div>
+
 </section>
 
 </main>
 
 <footer>
+
   <div class="wrap foot">
 
     <div>
@@ -272,6 +935,7 @@ footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);c
     </div>
 
   </div>
+
 </footer>
 
 </body>
