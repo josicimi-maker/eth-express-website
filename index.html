@@ -1,1284 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ETH-Express | Autoteile & Kfz-Zubehör</title>
-
-  <meta
-    name="description"
-    content="ETH-Express – Autoteile und Kfz-Zubehör in Berlin und Umgebung. Persönlicher Service, schnelle Bestellung, Lieferung und Abholung."
-  >
-
-  <style>
-    :root {
-      --black: #080808;
-      --dark: #111111;
-      --card: #171717;
-      --red: #e10600;
-      --red-light: #ff1b12;
-      --white: #ffffff;
-      --gray: #c7c7c7;
-      --line: rgba(255,255,255,0.10);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(8,8,8,0.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-    }
-
-    .brand span {
-      color: var(--red);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #e5e5e5;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--red);
-      color: var(--white);
-      padding: 12px 18px;
-      border-radius: 11px;
-      font-weight: 700;
-      border: 1px solid var(--red);
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background: var(--red-light);
-      border-color: var(--red-light);
-      transform: translateY(-1px);
-    }
-
-    .button.outline {
-      background: transparent;
-      border-color: rgba(255,255,255,0.24);
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 55px 0 45px;
-      background:
-        radial-gradient(
-          circle at 88% 15%,
-          rgba(225,6,0,0.25),
-          transparent 24%
-        ),
-        linear-gradient(
-          180deg,
-          #080808 0%,
-          #111111 100%
-        );
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      right: -170px;
-      top: -160px;
-      border: 18px solid rgba(225,6,0,0.13);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .eyebrow {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      margin: 0 auto 17px;
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.02;
-      font-weight: 750;
-      letter-spacing: -1.5px;
-    }
-
-    .hero-description {
-      max-width: 720px;
-      margin: 0 auto 26px;
-      color: #e4e4e4;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 34px;
-    }
-
-    /* LOGO BEREICH */
-
-    .logo-box {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--white);
-      color: #050505;
-      border-radius: 22px;
-      padding: 30px 24px 26px;
-      box-shadow: 0 25px 55px rgba(0,0,0,0.38);
-    }
-
-    .eth-logo {
-      width: min(720px, 100%);
-      margin: auto;
-    }
-
-    .logo-tagline {
-      color: var(--red);
-      font-weight: 800;
-      font-style: italic;
-      letter-spacing: 1px;
-      margin-top: 7px;
-      font-size: 17px;
-    }
-
-    .logo-category {
-      color: #111;
-      margin-top: 8px;
-      font-size: 15px;
-      font-weight: 750;
-      letter-spacing: 1.5px;
-    }
-
-    /* SCHNELLE INFOS */
-
-    .quick-info {
-      background: #0c0c0c;
-      border-top: 1px solid rgba(225,6,0,0.75);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .quick-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
-      min-height: 100px;
-      padding: 18px;
-      border-right: 1px solid var(--line);
-    }
-
-    .quick-item:last-child {
-      border-right: none;
-    }
-
-    .quick-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      color: var(--red);
-      flex-shrink: 0;
-    }
-
-    .quick-icon svg {
-      width: 34px;
-      height: 34px;
-    }
-
-    .quick-item strong {
-      display: block;
-      font-size: 15px;
-      font-weight: 750;
-    }
-
-    .quick-item span {
-      display: block;
-      font-size: 13px;
-      color: var(--gray);
-      margin-top: 2px;
-    }
-
-    /* SEKTIONEN */
-
-    section.content {
-      padding: 75px 0;
-    }
-
-    .section-label {
-      color: var(--red);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.7px;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      margin: 0 0 13px;
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.12;
-      font-weight: 700;
-      letter-spacing: -0.7px;
-    }
-
-    .section-description {
-      margin: 0;
-      color: var(--gray);
-      font-size: 16px;
-      max-width: 720px;
-    }
-
-    /* ÜBER UNS */
-
-    .about {
-      background: #0f0f0f;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .about-title span {
-      color: var(--red);
-    }
-
-    .about-box {
-      background: linear-gradient(
-        180deg,
-        #171717,
-        #121212
-      );
-      border: 1px solid var(--line);
-      border-left: 5px solid var(--red);
-      border-radius: 17px;
-      padding: 28px;
-    }
-
-    .about-box p {
-      margin: 0;
-      color: #eeeeee;
-      font-size: 17px;
-      line-height: 1.75;
-    }
-
-    .about-box strong {
-      color: var(--white);
-      font-weight: 750;
-    }
-
-    /* LEISTUNGEN */
-
-    .services {
-      background: #080808;
-    }
-
-    .services-head {
-      margin-bottom: 32px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: linear-gradient(
-        180deg,
-        #171717,
-        #111111
-      );
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      padding: 25px;
-    }
-
-    .card-icon {
-      width: 50px;
-      height: 50px;
-      display: grid;
-      place-items: center;
-      color: var(--red);
-      background: rgba(225,6,0,0.08);
-      border: 1px solid rgba(225,6,0,0.28);
-      border-radius: 13px;
-      margin-bottom: 17px;
-    }
-
-    .card-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .card h3 {
-      margin: 0 0 7px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--gray);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    /* BESTELLUNG */
-
-    .order {
-      background: #111111;
-    }
-
-    .steps {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      background: #181818;
-      border-top: 3px solid var(--red);
-      padding: 25px;
-    }
-
-    .step-number {
-      color: var(--red);
-      font-size: 26px;
-      font-weight: 750;
-      margin-bottom: 10px;
-    }
-
-    .step h3 {
-      margin: 0 0 7px;
-      font-size: 18px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--gray);
-      font-size: 15px;
-    }
-
-    /* KONTAKT */
-
-    .contact {
-      background: #0b0b0b;
-    }
-
-    .contact-grid {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .contact-card {
-      background: #151515;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      padding: 28px;
-    }
-
-    .contact-card h3 {
-      margin: 0 0 14px;
-      font-size: 22px;
-    }
-
-    .contact-row {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-row:last-child {
-      border-bottom: none;
-    }
-
-    .contact-row small {
-      display: block;
-      color: var(--red);
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    .contact-row strong {
-      font-size: 15px;
-      font-weight: 650;
-    }
-
-    .contact-red {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(
-        135deg,
-        #e10600,
-        #b90000
-      );
-      border-radius: 17px;
-      padding: 30px;
-    }
-
-    .contact-red::after {
-      content: "ETH";
-      position: absolute;
-      right: -20px;
-      bottom: -65px;
-      font-size: 145px;
-      font-weight: 900;
-      color: rgba(0,0,0,0.13);
-      line-height: 1;
-    }
-
-    .contact-red h3,
-    .contact-red p,
-    .contact-red a {
-      position: relative;
-      z-index: 2;
-    }
-
-    .contact-red h3 {
-      margin: 0 0 12px;
-      font-size: 27px;
-      line-height: 1.15;
-    }
-
-    .contact-red p {
-      margin: 0 0 21px;
-      font-size: 15px;
-    }
-
-    .contact-red .button {
-      background: #090909;
-      border-color: #090909;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: #060606;
-      padding: 27px 0 35px;
-      color: #a8a8a8;
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* HANDY */
-
-    @media (max-width: 850px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .about-grid,
-      .cards,
-      .steps,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-item {
-        justify-content: flex-start;
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .quick-item:last-child {
-        border-bottom: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .nav {
-        min-height: 64px;
-      }
-
-      .brand {
-        font-size: 18px;
-      }
-
-      header .button {
-        font-size: 13px;
-        padding: 9px 12px;
-      }
-
-      .hero {
-        padding: 35px 0 30px;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      .logo-box {
-        border-radius: 17px;
-        padding: 20px 12px;
-      }
-
-      .logo-tagline {
-        font-size: 14px;
-      }
-
-      .logo-category {
-        font-size: 12px;
-      }
-
-      section.content {
-        padding: 58px 0;
-      }
-
-      .about-box {
-        padding: 22px;
-      }
-
-      .about-box p {
-        font-size: 15.5px;
-      }
-
-      .contact-red h3 {
-        font-size: 23px;
-      }
-    }
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ETH-Express | Autoteile & Kfz-Zubehör</title>
+<meta name="description" content="ETH-Express – Autoteile & Kfz-Zubehör in Berlin und Umgebung.">
+<style>
+:root{--bg:#080808;--dark:#111;--card:#171717;--red:#e10600;--muted:#bdbdbd;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:19px;font-weight:800;letter-spacing:.8px}.brand span{color:var(--red)}nav{display:flex;gap:22px;font-size:14px;color:#ddd}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);padding:11px 17px;border-radius:11px;font-weight:750;border:1px solid var(--red)}.btn.alt{background:transparent;border-color:rgba(255,255,255,.24)}
+.hero{padding:46px 0 40px;background:radial-gradient(circle at 88% 14%,rgba(225,6,0,.24),transparent 24%),linear-gradient(#080808,#101010);text-align:center}.kicker,.label{color:var(--red);font-size:12px;font-weight:850;letter-spacing:1.7px;text-transform:uppercase}h1{margin:8px auto 14px;font-size:clamp(36px,7vw,64px);line-height:1.04;font-weight:760}.lead{max-width:720px;margin:0 auto 24px;color:#e4e4e4;font-size:16px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.logo-shell{max-width:800px;margin:auto;background:#fff;border-radius:20px;padding:7px;box-shadow:0 24px 55px rgba(0,0,0,.4)}.logo-shell img{display:block;width:100%;height:auto;border-radius:13px}
+.featurebar{background:#0c0c0c;border-top:1px solid rgba(225,6,0,.78);border-bottom:1px solid var(--line)}.features{display:grid;grid-template-columns:repeat(3,1fr)}.feature{padding:19px 16px;text-align:center;border-right:1px solid var(--line)}.feature:last-child{border-right:0}.feature strong{display:block;font-size:15px}.feature span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+section{padding:64px 0}.section-title{margin:8px 0 12px;font-size:clamp(28px,5vw,42px);line-height:1.12;font-weight:730}.section-copy{margin:0;color:var(--muted);max-width:720px}.about{background:#0f0f0f}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:center}.about-box{background:linear-gradient(#171717,#121212);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:16px;padding:25px 26px}.about-box p{margin:0;color:#eee;font-size:16.5px;line-height:1.75}
+.cards,.steps,.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}.card,.step,.contact-card{background:linear-gradient(#171717,#111);border:1px solid var(--line);border-radius:16px;padding:24px}.card h3,.step h3{margin:0 0 7px;font-size:18px}.card p,.step p{margin:0;color:var(--muted);font-size:14.5px}.order{background:#111}.step{border-top:3px solid var(--red)}.nr{color:var(--red);font-size:25px;font-weight:800;margin-bottom:9px}
+.contact{background:#090909}.contact-grid{grid-template-columns:1fr 1fr}.contact-card h3{margin:0 0 14px;font-size:21px}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row small{display:block;color:var(--red);font-size:11px;font-weight:850;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}.cta{background:linear-gradient(135deg,#e10600,#b90000);border-radius:16px;padding:28px}.cta h3{margin:0 0 10px;font-size:25px;line-height:1.14}.cta p{margin:0 0 20px}.cta .btn{background:#090909;border-color:#090909}
+footer{padding:26px 0 34px;background:#060606;border-top:1px solid var(--line);color:#9f9f9f;font-size:13px}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:820px){nav{display:none}.features,.about-grid,.cards,.steps,.contact-grid{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}}
+@media(max-width:600px){.brand{font-size:17px}header .btn{font-size:13px;padding:9px 12px}.hero{padding:34px 0 30px}h1{font-size:39px}.lead{font-size:15px}section{padding:54px 0}.about-box{padding:21px}}
+</style>
 </head>
-
 
 <body>
 
 <header>
   <div class="wrap nav">
+    <a class="brand" href="#top">ETH<span>-EXPRESS</span></a>
 
-    <a class="brand" href="#top">
-      ETH<span>-EXPRESS</span>
-    </a>
-
-    <nav class="nav-links">
+    <nav>
       <a href="#ueber-uns">Über uns</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#bestellen">Bestellen</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
 
-    <a
-      class="button"
-      href="https://wa.me/491783957461"
-      target="_blank"
-      rel="noopener"
-    >
+    <a class="btn" href="https://wa.me/491783957461" target="_blank" rel="noopener">
       WhatsApp
     </a>
-
   </div>
 </header>
 
-
 <main id="top">
 
-  <!-- HERO -->
+<section class="hero">
+  <div class="wrap">
 
-  <section class="hero">
+    <div class="kicker">Express Teile Handel</div>
 
-    <div class="wrap hero-content">
+    <h1>Autoteile & Kfz-Zubehör</h1>
 
-      <div class="eyebrow">
-        Express Teile Handel
+    <p class="lead">
+      Schnell, zuverlässig und unkompliziert:
+      Wir unterstützen Privat- und Gewerbekunden bei der Suche nach den passenden Teilen –
+      persönlich und ohne Umwege.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="https://wa.me/491783957461" target="_blank" rel="noopener">
+        Jetzt Teile anfragen
+      </a>
+
+      <a class="btn alt" href="#ueber-uns">
+        Mehr erfahren
+      </a>
+    </div>
+
+    <div class="logo-shell">
+      <img
+        src="data:image/webp;base64,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" 
+        alt="ETH Express Teile Handel – Teile, die bewegen. Autoteile & Kfz-Zubehör">
+    </div>
+
+  </div>
+</section>
+
+<div class="featurebar">
+  <div class="wrap features">
+    <div class="feature">
+      <strong>Berlin & Umgebung</strong>
+      <span>Persönlich für Sie da</span>
+    </div>
+
+    <div class="feature">
+      <strong>Lieferung & Abholung</strong>
+      <span>Schnell und unkompliziert</span>
+    </div>
+
+    <div class="feature">
+      <strong>Schneller Service</strong>
+      <span>Zuverlässig. Kompetent.</span>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="ueber-uns">
+  <div class="wrap about-grid">
+
+    <div>
+      <div class="label">Über uns</div>
+      <h2 class="section-title">Über ETH-Express</h2>
+    </div>
+
+    <div class="about-box">
+      <p>
+        <strong>
+          Wir sind ein junges, dynamisches Team aus Berlin und haben uns auf
+          Autoteile und Kfz-Zubehör spezialisiert.
+        </strong>
+        Unser Ziel ist es, schnell das passende Teil für Ihr Fahrzeug zu finden –
+        mit persönlicher Beratung, zuverlässigem Service und einer unkomplizierten Abwicklung.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="leistungen">
+  <div class="wrap">
+
+    <div class="label">Unsere Leistungen</div>
+
+    <h2 class="section-title">Was wir für Sie tun.</h2>
+
+    <p class="section-copy">
+      Kurze Wege, persönliche Beratung und die passenden Teile für Ihr Fahrzeug.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <h3>Autoteile & Verschleißteile</h3>
+        <p>
+          Bremsen, Filter, Fahrwerk, Wartungsteile und vieles mehr.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Kfz-Zubehör</h3>
+        <p>
+          Batterien und passendes Zubehör für Ihren täglichen Bedarf.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Lieferung & Abholung</h3>
+        <p>
+          Bequem abholen oder nach Absprache in Berlin und Umgebung liefern lassen.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="order" id="bestellen">
+  <div class="wrap">
+
+    <div class="label">So funktioniert's</div>
+
+    <h2 class="section-title">
+      In drei Schritten zum passenden Teil.
+    </h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="nr">01</div>
+        <h3>Anfrage senden</h3>
+        <p>
+          Fahrzeugdaten und das gesuchte Teil einfach per WhatsApp schicken.
+        </p>
       </div>
 
-      <h1>
-        Autoteile & Kfz-Zubehör
-      </h1>
+      <div class="step">
+        <div class="nr">02</div>
+        <h3>Passendes Teil finden</h3>
+        <p>
+          Wir prüfen Ihre Angaben und unterstützen bei der Auswahl.
+        </p>
+      </div>
 
-      <p class="hero-description">
-        Schnell, zuverlässig und unkompliziert:
-        ETH-Express unterstützt Sie bei der Suche nach
-        passenden Autoteilen und Kfz-Zubehör –
-        mit persönlichem Service sowie Lieferung oder Abholung.
-      </p>
+      <div class="step">
+        <div class="nr">03</div>
+        <h3>Liefern oder abholen</h3>
+        <p>
+          Nach Absprache bequem abholen oder liefern lassen.
+        </p>
+      </div>
 
-      <div class="hero-buttons">
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+
+    <div class="label">Kontakt</div>
+
+    <h2 class="section-title">Direkt erreichbar.</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>ETH-Express</h3>
+
+        <div class="row">
+          <small>WhatsApp / Telefon</small>
+          <strong>0178 3957461</strong>
+        </div>
+
+        <div class="row">
+          <small>Webseite</small>
+          <strong>www.eth-express.de</strong>
+        </div>
+
+        <div class="row">
+          <small>Adresse</small>
+          <strong>
+            Brunsbütteler Damm 134 · Halle D-5 · 13581 Berlin
+          </strong>
+        </div>
+
+        <div class="row">
+          <small>Servicegebiet</small>
+          <strong>Berlin & Umgebung</strong>
+        </div>
+
+      </div>
+
+      <div class="cta">
+
+        <h3>
+          Sie suchen ein bestimmtes Kfz-Teil?
+        </h3>
+
+        <p>
+          Senden Sie uns Ihre Fahrzeugdaten und das gesuchte Teil.
+          Wir melden uns schnellstmöglich bei Ihnen.
+        </p>
 
         <a
-          class="button"
+          class="btn"
           href="https://wa.me/491783957461"
           target="_blank"
           rel="noopener"
         >
-          Jetzt Teile anfragen
+          Per WhatsApp anfragen
         </a>
-
-        <a class="button outline" href="#ueber-uns">
-          Mehr erfahren
-        </a>
-
-      </div>
-
-
-      <!-- LOGO -->
-
-      <div class="logo-box">
-
-        <svg
-          class="eth-logo"
-          viewBox="0 0 900 330"
-          role="img"
-          aria-label="ETH Express Teile Handel"
-        >
-
-          <!-- roter Balken links -->
-
-          <polygon
-            points="80,62 285,62 265,100 60,100"
-            fill="#e10600"
-          />
-
-
-          <!-- ETH Schrift -->
-
-          <text
-            x="55"
-            y="235"
-            font-family="Arial Black, Arial, sans-serif"
-            font-size="200"
-            font-weight="900"
-            font-style="italic"
-            letter-spacing="-10"
-            fill="#050505"
-          >
-            ETH
-          </text>
-
-
-          <!-- roter Bogen -->
-
-          <path
-            d="
-              M675 58
-              A135 135 0 0 1
-              795 218
-            "
-            fill="none"
-            stroke="#e10600"
-            stroke-width="28"
-          />
-
-
-          <!-- kleine weiße Markierungen -->
-
-          <line
-            x1="704"
-            y1="72"
-            x2="713"
-            y2="96"
-            stroke="#ffffff"
-            stroke-width="6"
-          />
-
-          <line
-            x1="733"
-            y1="84"
-            x2="741"
-            y2="108"
-            stroke="#ffffff"
-            stroke-width="6"
-          />
-
-          <line
-            x1="760"
-            y1="104"
-            x2="768"
-            y2="127"
-            stroke="#ffffff"
-            stroke-width="6"
-          />
-
-
-          <!-- Express Teile Handel -->
-
-          <text
-            x="75"
-            y="302"
-            font-family="Arial Black, Arial, sans-serif"
-            font-size="44"
-            font-weight="800"
-            font-style="italic"
-            letter-spacing="7"
-            fill="#080808"
-          >
-            EXPRESS TEILE HANDEL
-          </text>
-
-        </svg>
-
-
-        <div class="logo-tagline">
-          — TEILE, DIE BEWEGEN. —
-        </div>
-
-        <div class="logo-category">
-          AUTOTEILE & KFZ-ZUBEHÖR
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- INFO LEISTE -->
-
-  <div class="quick-info">
-
-    <div class="wrap quick-grid">
-
-      <div class="quick-item">
-
-        <div class="quick-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-          >
-            <path
-              d="M12 21s7-6.2 7-12A7 7 0 1 0 5 9c0 5.8 7 12 7 12Z"
-            />
-            <circle cx="12" cy="9" r="2.3"/>
-          </svg>
-
-        </div>
-
-        <div>
-          <strong>Berlin & Umgebung</strong>
-          <span>Persönlich für Sie da</span>
-        </div>
-
-      </div>
-
-
-      <div class="quick-item">
-
-        <div class="quick-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-          >
-            <path d="M3 6h11v10H3z"/>
-            <path d="M14 9h3l3 3v4h-6z"/>
-            <circle cx="7" cy="18" r="2"/>
-            <circle cx="17" cy="18" r="2"/>
-          </svg>
-
-        </div>
-
-        <div>
-          <strong>Lieferung & Abholung</strong>
-          <span>Schnell und unkompliziert</span>
-        </div>
-
-      </div>
-
-
-      <div class="quick-item">
-
-        <div class="quick-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-          >
-            <path d="M4 17v-6l4-4h7l5 5v5"/>
-            <circle cx="8" cy="17" r="2"/>
-            <circle cx="18" cy="17" r="2"/>
-            <path d="M10 17h6"/>
-          </svg>
-
-        </div>
-
-        <div>
-          <strong>Schneller Service</strong>
-          <span>Zuverlässig. Kompetent.</span>
-        </div>
 
       </div>
 
     </div>
 
   </div>
-
-
-  <!-- ÜBER UNS -->
-
-  <section class="content about" id="ueber-uns">
-
-    <div class="wrap about-grid">
-
-      <div>
-
-        <div class="section-label">
-          Über uns
-        </div>
-
-        <h2 class="section-title about-title">
-          Jung. Dynamisch.<br>
-          <span>Persönlich.</span>
-        </h2>
-
-      </div>
-
-
-      <div class="about-box">
-
-        <p>
-          <strong>
-            ETH-Express ist ein junges, dynamisches Team
-            mit Fokus auf Autoteile und Kfz-Zubehör.
-          </strong>
-
-          Wir unterstützen Privat- und Gewerbekunden dabei,
-          schnell und unkompliziert die passenden Teile
-          für ihr Fahrzeug zu finden.
-
-          Dabei setzen wir auf persönliche Beratung,
-          zuverlässigen Service und eine einfache,
-          faire Abwicklung.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- LEISTUNGEN -->
-
-  <section class="content services" id="leistungen">
-
-    <div class="wrap">
-
-      <div class="services-head">
-
-        <div class="section-label">
-          Unsere Leistungen
-        </div>
-
-        <h2 class="section-title">
-          Alles rund um Ihr Fahrzeug.
-        </h2>
-
-        <p class="section-description">
-          Von Verschleißteilen bis Zubehör –
-          wir unterstützen Sie bei der Suche
-          nach dem passenden Teil.
-        </p>
-
-      </div>
-
-
-      <div class="cards">
-
-
-        <article class="card">
-
-          <div class="card-icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-            >
-              <circle cx="12" cy="12" r="7"/>
-              <circle cx="12" cy="12" r="2"/>
-              <path d="M12 5v2"/>
-              <path d="M19 12h-2"/>
-              <path d="M12 19v-2"/>
-              <path d="M5 12h2"/>
-            </svg>
-
-          </div>
-
-          <h3>Bremsen</h3>
-
-          <p>
-            Bremsscheiben, Bremsbeläge
-            und weitere Komponenten.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-            >
-              <rect x="6" y="4" width="12" height="16"/>
-              <path d="M9 9h6"/>
-              <path d="M9 13h6"/>
-              <path d="M9 17h6"/>
-            </svg>
-
-          </div>
-
-          <h3>Filter & Wartung</h3>
-
-          <p>
-            Öl-, Luft- und Innenraumfilter
-            sowie weitere Wartungsteile.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-            >
-              <rect
-                x="4"
-                y="7"
-                width="16"
-                height="12"
-                rx="1"
-              />
-              <path d="M8 5v2"/>
-              <path d="M16 5v2"/>
-              <path d="M8 13h4"/>
-              <path d="M10 11v4"/>
-              <path d="M15 13h3"/>
-            </svg>
-
-          </div>
-
-          <h3>Batterien & Zubehör</h3>
-
-          <p>
-            Batterien und passendes Kfz-Zubehör
-            für Ihren Bedarf.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- BESTELLABLAUF -->
-
-  <section class="content order" id="bestellen">
-
-    <div class="wrap">
-
-      <div class="section-label">
-        So funktioniert's
-      </div>
-
-      <h2 class="section-title">
-        Schnell zum passenden Teil.
-      </h2>
-
-      <p class="section-description">
-        Eine kurze Anfrage reicht –
-        wir kümmern uns um den Rest.
-      </p>
-
-
-      <div class="steps">
-
-        <div class="step">
-
-          <div class="step-number">
-            01
-          </div>
-
-          <h3>Anfrage senden</h3>
-
-          <p>
-            Fahrzeugdaten und das gesuchte Teil
-            einfach per WhatsApp schicken.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            02
-          </div>
-
-          <h3>Passendes Teil finden</h3>
-
-          <p>
-            Wir prüfen Ihre Angaben und helfen
-            bei der Auswahl des passenden Artikels.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            03
-          </div>
-
-          <h3>Liefern oder abholen</h3>
-
-          <p>
-            Nach Absprache bequem abholen
-            oder in Berlin und Umgebung liefern lassen.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- KONTAKT -->
-
-  <section class="content contact" id="kontakt">
-
-    <div class="wrap">
-
-      <div class="section-label">
-        Kontakt
-      </div>
-
-      <h2 class="section-title">
-        Wir sind für Sie da.
-      </h2>
-
-      <p class="section-description">
-        Schreiben Sie uns einfach per WhatsApp
-        oder besuchen Sie uns vor Ort.
-      </p>
-
-
-      <div class="contact-grid">
-
-        <div class="contact-card">
-
-          <h3>ETH-Express</h3>
-
-
-          <div class="contact-row">
-
-            <small>
-              WhatsApp / Telefon
-            </small>
-
-            <strong>
-              0178 3957461
-            </strong>
-
-          </div>
-
-
-          <div class="contact-row">
-
-            <small>
-              Webseite
-            </small>
-
-            <strong>
-              www.eth-express.de
-            </strong>
-
-          </div>
-
-
-          <div class="contact-row">
-
-            <small>
-              Adresse
-            </small>
-
-            <strong>
-              Brunsbütteler Damm 134<br>
-              Halle D-5 · 13581 Berlin
-            </strong>
-
-          </div>
-
-
-          <div class="contact-row">
-
-            <small>
-              Servicegebiet
-            </small>
-
-            <strong>
-              Berlin & Umgebung
-            </strong>
-
-          </div>
-
-        </div>
-
-
-        <div class="contact-red">
-
-          <h3>
-            Sie suchen ein bestimmtes Kfz-Teil?
-          </h3>
-
-          <p>
-            Schicken Sie uns Ihre Fahrzeugdaten
-            und das gesuchte Teil.
-            Wir helfen Ihnen schnell und unkompliziert weiter.
-          </p>
-
-          <a
-            class="button"
-            href="https://wa.me/491783957461"
-            target="_blank"
-            rel="noopener"
-          >
-            Jetzt per WhatsApp anfragen
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+</section>
 
 </main>
 
-
 <footer>
-
-  <div class="wrap footer-inner">
+  <div class="wrap foot">
 
     <div>
       © 2026 ETH-Express · Express Teile Handel
@@ -1289,7 +272,6 @@
     </div>
 
   </div>
-
 </footer>
 
 </body>
