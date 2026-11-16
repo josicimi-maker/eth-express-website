@@ -527,15 +527,13 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .mobile-detail{display:block!important}
 }
 
-/* Product tiles: use the product-bearing LEFT HALF of each original composite image.
-   The originals already contain a black text half; never fit the whole image into the photo pane. */
-.service-tiles .service-tile .tile-photo{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-image:none!important;background-color:#101010!important}
-.service-tiles .service-tile .tile-photo::before{content:""!important;display:block!important;position:absolute!important;inset:-10%!important;z-index:0!important;background-image:var(--product-photo)!important;background-size:200% 100%!important;background-position:left center!important;background-repeat:no-repeat!important;filter:blur(9px) brightness(.60)!important;transform:scale(1.12)!important;pointer-events:none!important}
-.service-tiles .service-tile .tile-photo::after{content:""!important;display:block!important;position:absolute!important;inset:0!important;z-index:1!important;background-image:var(--product-photo)!important;background-size:200% 100%!important;background-position:left center!important;background-repeat:no-repeat!important;pointer-events:none!important;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)!important}
+/* Preview: smaller product imagery, shifted left, no overlapping blur layer. */
+.service-tiles .service-tile .tile-photo{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#292929!important}
+.service-tiles .service-tile .tile-photo::before{content:none!important;display:none!important}
+.service-tiles .service-tile .tile-photo::after{content:""!important;display:block!important;position:absolute!important;inset:0 auto 0 0!important;width:125%!important;height:100%!important;z-index:1!important;background-image:var(--product-photo)!important;background-size:200% 100%!important;background-position:left center!important;background-repeat:no-repeat!important;transform:scale(.8)!important;transform-origin:left center!important;filter:none!important;mask-image:none!important;pointer-events:none!important}
 .service-tiles .service-tile .tile-photo.brake{--product-photo:url("assets/83F8F681-AC0E-49ED-A8EB-E41835073465.png")}
 .service-tiles .service-tile .tile-photo.filters{--product-photo:url("assets/9B3AE2DA-CED9-4B03-B492-84FEB6D74337.png")}
 .service-tiles .service-tile .tile-photo.tools{--product-photo:url("assets/E5F78B3D-22E4-4DC1-B6EB-EC205005AA5B.png")}
-@media(max-width:900px){.service-tiles .service-tile .tile-photo::before{filter:blur(7px) brightness(.60)!important}}
 </style>
 </head>
 
