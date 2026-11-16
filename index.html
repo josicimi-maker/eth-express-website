@@ -540,6 +540,20 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .service-tile .tile-photo,.service-tiles .service-tile .tile-photo::before,.service-tiles .service-tile .tile-photo::after{display:none!important;content:none!important;background-image:none!important}
 .service-tiles .service-tile .tile-copy{width:100%!important;padding:12px 15px!important;background:#171717!important}
 @media(max-width:900px){.service-tiles .service-tile .tile-copy{padding:7px 9px!important}}
+/* Refined typography-only product cards, no images or decorative icons. */
+.service-tiles .service-tile{display:flex!important;align-items:stretch!important;position:relative!important;grid-template-columns:none!important;overflow:hidden!important;border:1px solid #414141!important;border-left:3px solid #e31a1a!important;border-radius:10px!important;background:linear-gradient(135deg,#252525 0%,#171717 70%)!important;box-shadow:0 5px 18px rgba(0,0,0,.16)!important}
+.service-tiles .service-tile .tile-photo,.service-tiles .service-tile .tile-photo::before,.service-tiles .service-tile .tile-photo::after{display:none!important;content:none!important}
+.service-tiles .service-tile .tile-copy{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;width:100%!important;min-width:0!important;padding:14px 17px!important;background:transparent!important;overflow:hidden!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(15px,1.55vw,21px)!important;font-weight:800!important;letter-spacing:-.35px!important;line-height:1.15!important;hyphens:none!important}
+.service-tiles .service-tile .tile-copy .accent{height:2px!important;width:28px!important;margin:9px 0!important;background:#ed2020!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(11px,1vw,14px)!important;line-height:1.4!important;color:#d4d4d4!important}
+@media(max-width:900px){.service-tiles .service-tile{height:92px!important;min-height:92px!important;border-left-width:3px!important}.service-tiles .service-tile .tile-copy{padding:8px 8px!important}.service-tiles .service-tile .tile-copy h3{font-size:clamp(10px,2.2vw,15px)!important;letter-spacing:-.25px!important}.service-tiles .service-tile .tile-copy .accent{width:20px!important;margin:6px 0!important}.service-tiles .service-tile .tile-copy p{font-size:clamp(8px,1.6vw,11px)!important;line-height:1.3!important}}
+
+/* Prominent diagonal hero stripe, visible on phones and desktop */
+.hero{overflow:hidden!important}
+.hero::before{content:""!important;display:block!important;position:absolute!important;left:0!important;top:0!important;width:clamp(28px,5vw,72px)!important;height:100%!important;background:linear-gradient(100deg,#ff2525,#d90000 75%,#790000)!important;clip-path:polygon(65% 0,100% 0,35% 100%,0 100%)!important;transform:none!important;pointer-events:none!important;z-index:1!important}
+.hero-in{position:relative!important;z-index:2!important}
+@media(max-width:900px){.hero::before{width:clamp(22px,5vw,38px)!important;clip-path:polygon(60% 0,100% 0,28% 100%,0 100%)!important}}
 </style>
 </head>
 
