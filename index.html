@@ -489,6 +489,10 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 }
 
 }
+
+/* Device-specific header layout: desktop/laptop vs mobile/tablet */
+@media(min-width:901px){.nav .nav-logo{width:205px!important;height:auto!important;max-height:72px!important;object-fit:contain!important;object-position:left center!important;filter:none!important;mix-blend-mode:normal!important}.nav{min-height:82px}}
+@media(max-width:900px){.nav .nav-logo{width:120px!important;height:auto!important;max-height:54px!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}}
 </style>
 </head>
 
