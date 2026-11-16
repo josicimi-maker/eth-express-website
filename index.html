@@ -487,6 +487,17 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tile .tile-copy h3{font-size:clamp(8px,1.95vw,11px);line-height:1.1;overflow-wrap:normal;hyphens:manual}
 .service-tile .tile-copy p{font-size:clamp(6px,1.42vw,8px);line-height:1.2;hyphens:auto}
 }
+
+/* Final mobile card fit: full subject in image half, readable captions, no clipping */
+@media(max-width:700px){
+.service-tiles{gap:6px}
+.service-tile{grid-template-columns:45% minmax(0,55%);height:102px;min-height:102px;overflow:hidden}
+.service-tile .tile-photo{height:100%;min-height:0;background-color:#080808;background-size:200% 100%;background-position:left center;background-repeat:no-repeat}
+.service-tile .tile-copy{min-width:0;overflow:hidden;padding:6px 5px;justify-content:center}
+.service-tile .tile-copy h3{font-size:9.3px;line-height:1.12;letter-spacing:-.25px;white-space:normal;overflow-wrap:anywhere;hyphens:manual}
+.service-tile .tile-copy .accent{margin:5px 0;width:17px}
+.service-tile .tile-copy p{font-size:7.6px;line-height:1.24;overflow-wrap:break-word;hyphens:auto}
+}
 </style>
 </head>
 
