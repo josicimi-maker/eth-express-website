@@ -493,6 +493,20 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 /* Device-specific header layout: desktop/laptop vs mobile/tablet */
 @media(min-width:901px){.nav .nav-logo{width:205px!important;height:auto!important;max-height:72px!important;object-fit:contain!important;object-position:left center!important;filter:none!important;mix-blend-mode:normal!important}.nav{min-height:82px}}
 @media(max-width:900px){.nav .nav-logo{width:120px!important;height:auto!important;max-height:54px!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}}
+
+/* Authoritative product cards: only one image per tile, opaque text panel */
+.service-tiles .service-tile{position:relative!important;display:grid!important;grid-template-columns:44% minmax(0,56%)!important;align-items:stretch!important;min-height:112px!important;height:112px!important;padding:0!important;overflow:hidden!important;background:#0b0b0b!important;isolation:isolate!important}
+.service-tiles .service-tile::before,.service-tiles .service-tile::after{content:none!important;display:none!important}
+.service-tiles .service-tile .tile-photo{display:block!important;position:relative!important;width:100%!important;height:100%!important;min-height:0!important;background-color:#080808!important;background-repeat:no-repeat!important;background-size:200% 100%!important;background-position:left center!important;z-index:0!important}
+.service-tiles .service-tile .tile-copy{position:relative!important;z-index:2!important;min-width:0!important;height:100%!important;display:flex!important;flex-direction:column!important;justify-content:center!important;padding:8px!important;background:#111!important;overflow:hidden!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(11px,1.15vw,16px)!important;line-height:1.15!important;overflow-wrap:normal!important;hyphens:manual!important;word-break:normal!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(9px,.9vw,13px)!important;line-height:1.25!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:auto!important}
+@media(max-width:900px){
+.service-tiles .service-tile{grid-template-columns:40% minmax(0,60%)!important;height:84px!important;min-height:84px!important}
+.service-tiles .service-tile .tile-copy{padding:5px!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(8px,1.9vw,12px)!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(7px,1.35vw,10px)!important;line-height:1.2!important}
+}
 </style>
 </head>
 
