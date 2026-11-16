@@ -476,6 +476,17 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tile .tile-copy .accent{margin:5px 0;width:17px}
 .service-tile .tile-copy p{font-size:clamp(6px,1.4vw,8px);line-height:1.18;overflow-wrap:normal;hyphens:auto}
 }
+
+/* Keep reference cards horizontal; frame left-side products and fit all captions */
+@media(max-width:700px){
+.service-tile{grid-template-columns:46% minmax(0,54%);min-height:76px}
+.service-tile .tile-photo{min-height:76px;background-size:cover;background-position:18% center}
+.service-tile:nth-child(2) .tile-photo{background-position:12% center}
+.service-tile:nth-child(3) .tile-photo{background-position:10% center}
+.service-tile .tile-copy{padding:5px 4px}
+.service-tile .tile-copy h3{font-size:clamp(8px,1.95vw,11px);line-height:1.1;overflow-wrap:normal;hyphens:manual}
+.service-tile .tile-copy p{font-size:clamp(6px,1.42vw,8px);line-height:1.2;hyphens:auto}
+}
 </style>
 </head>
 
@@ -505,7 +516,7 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 <section class="category-section" aria-label="Produktbereiche"><div class="wrap service-tiles">
 <article class="service-tile"><div class="tile-photo brake"></div><div class="tile-copy"><h3>Autoteile</h3><div class="accent"></div><p>Ersatzteile für alle gängigen Fahrzeugmarken</p></div></article>
 <article class="service-tile"><div class="tile-photo filters"></div><div class="tile-copy"><h3>Zubehör</h3><div class="accent"></div><p>Filter, Öle, Batterien und vieles mehr</p></div></article>
-<article class="service-tile"><div class="tile-photo tools"></div><div class="tile-copy"><h3>Werkstattbedarf</h3><div class="accent"></div><p>Ausrüstung und Verbrauchsmaterial für Profis</p></div></article>
+<article class="service-tile"><div class="tile-photo tools"></div><div class="tile-copy"><h3>Werkstatt&shy;bedarf</h3><div class="accent"></div><p>Ausrüstung und Verbrauchsmaterial für Profis</p></div></article>
 </div></section>
 <div class="featurebar"><div class="wrap features"><div class="feature"><span class="benefit-icon">◷</span><strong>Schnelle<br>Verfügbarkeit</strong></div><div class="feature"><span class="benefit-icon">✓</span><strong>Große<br>Teileauswahl</strong></div><div class="feature"><span class="benefit-icon">✦</span><strong>Zuverlässiger<br>Service</strong></div><div class="feature"><span class="benefit-icon">▣</span><strong>Für Werkstätten<br>und Händler</strong></div></div></div>
 <section class="warehouse"><div class="wrap warehouse-grid"><div class="warehouse-photo" role="img" aria-label="Autoteilelager"></div><div class="warehouse-details"><article><h3><span>●</span> Unser Standort</h3><p>Brunsbütteler Damm 132–142<br>Halle 5-D<br>13581 Berlin</p></article><article><h3><span>◷</span> Kontakt</h3><p><a href="tel:+491783957461">0178 3957461</a><br><a href="mailto:info@eth-express.de">info@eth-express.de</a></p></article></div></div></section>
