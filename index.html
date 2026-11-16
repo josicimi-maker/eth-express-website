@@ -450,6 +450,10 @@ header .brand{background:#000!important;border:0!important;box-shadow:none!impor
 
 /* ETH header logo: original artwork colors, no image filters */
 header .nav-logo{filter:none!important;mix-blend-mode:normal!important;background:transparent!important;width:120px!important;height:auto!important;max-height:54px!important}header .brand{background:transparent!important;box-shadow:none!important;border:0!important}
+
+/* Mobile category text legibility: preserve 3-column reference layout */
+.service-tile,.tile-copy{min-width:0}.tile-copy h3,.tile-copy p{overflow-wrap:anywhere;word-break:normal;hyphens:auto}.tile-copy h3{line-height:1.12}.tile-copy p{line-height:1.25}
+@media(max-width:700px){.service-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.service-tile{grid-template-columns:36% minmax(0,64%);min-height:108px;overflow:hidden}.tile-copy{padding:6px 4px;min-width:0}.tile-copy h3{font-size:clamp(9px,2.15vw,12px);letter-spacing:-.2px;overflow-wrap:anywhere}.tile-copy p{font-size:clamp(7px,1.75vw,10px);line-height:1.2;overflow-wrap:anywhere}.tile-copy .accent{margin:5px 0;width:17px}.tile-photo{min-width:0}}
 </style>
 </head>
 
