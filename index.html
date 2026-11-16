@@ -406,6 +406,25 @@ footer {
   :root { --max:1260px; }
   .hero { padding-top:74px; }
 }
+
+/* ETH redesign preview – original content and functionality preserved */
+:root{--bg:#090909;--bg2:#111;--card:#151515;--red:#e10600;--line:rgba(255,255,255,.15)}
+header{border-bottom:2px solid #b50000;background:rgba(7,7,7,.97)}
+.brand{font-style:italic;letter-spacing:.2px;font-size:1.38rem}
+nav a:hover,nav a:focus-visible{color:#ff3434}
+.hero{position:relative;background:radial-gradient(ellipse at 90% 40%,rgba(156,0,0,.22),transparent 55%),linear-gradient(120deg,#090909 30%,#181818 100%);border-bottom:1px solid #a40000}
+.hero:before{content:"";position:absolute;left:0;top:0;width:8px;height:100%;background:linear-gradient(#f20b0b,#640000);transform:skew(-12deg);transform-origin:top}
+.hero-in{position:relative;z-index:1}
+.hero h1{font-style:italic;letter-spacing:-1.5px;text-wrap:balance}
+.actions .btn{background:linear-gradient(125deg,#eb1010,#ad0000);font-weight:800;box-shadow:0 8px 25px rgba(190,0,0,.18)}
+.actions .btn.alt{background:transparent;box-shadow:none}
+.card,.contact-card,.cta,.step{background:linear-gradient(145deg,#191919,#101010);border:1px solid rgba(255,255,255,.18);border-radius:12px}
+.card{border-top:2px solid #bf0000}
+.card h3{font-size:1.14rem}
+.content{border-bottom:1px solid rgba(190,0,0,.28)}
+.head .title{letter-spacing:-.5px}
+.contact-grid{align-items:stretch}
+@media(max-width:680px){.hero:before{width:5px}.hero h1{letter-spacing:-.7px}.card,.contact-card,.cta{border-radius:10px}}
 </style>
 </head>
 
@@ -591,7 +610,7 @@ footer {
 
         <div class="row">
           <small>Adresse</small>
-          <strong>Brunsbütteler Damm 134 · Halle D-5 · 13581 Berlin</strong>
+          <strong>Brunsbütteler Damm 132–142 · Halle 5-D · 13581 Berlin</strong>
         </div>
 
         <div class="row">
