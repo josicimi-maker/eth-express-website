@@ -444,6 +444,9 @@ header{position:relative;background:#050505;border-bottom:2px solid #c40000}head
 @media(max-width:700px){.hero{background-position:70% center}.service-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.warehouse-grid{grid-template-columns:1.35fr 1fr}.warehouse-photo{background-position:center}.featurebar .features{grid-template-columns:repeat(4,minmax(0,1fr))}}
 /* Reference fidelity: actual photographed Mercedes E63, original reference proportions */
 .hero{background:linear-gradient(90deg,rgba(0,0,0,.99) 0%,rgba(0,0,0,.88) 40%,rgba(0,0,0,.23) 75%),url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-AMG_E_63_S_4MATIC%2B_(W213).jpg?width=1600") 78% center/cover no-repeat,#080808}.hero h1{font-weight:900}.hero h1 em{color:#ed1212}.service-tile{background:#101010}.category-section{border-bottom:1px solid #5b1313}.service-tile .tile-copy{background:linear-gradient(90deg,#171717,#0c0c0c)}.warehouse-photo{background:linear-gradient(0deg,rgba(0,0,0,.13),rgba(0,0,0,.13)),url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1100&q=85") center/cover no-repeat,#171717}@media(max-width:700px){.hero{min-height:270px;background:linear-gradient(90deg,rgba(0,0,0,.98),rgba(0,0,0,.83) 43%,rgba(0,0,0,.12)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-AMG_E_63_S_4MATIC%2B_(W213).jpg?width=1000") 68% center/cover no-repeat,#080808}.service-tiles{gap:6px}.tile-copy p{font-size:8px}.featurebar .features{grid-template-columns:repeat(4,minmax(0,1fr))}.warehouse-grid{grid-template-columns:1.3fr 1fr}}
+
+/* Remove white logo tile against black header while preserving red and making lettering readable */
+header .brand{background:#000!important;border:0!important;box-shadow:none!important}header .nav-logo{background:transparent!important;filter:invert(1) hue-rotate(180deg);mix-blend-mode:screen;object-fit:contain}
 </style>
 </head>
 
