@@ -507,6 +507,25 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .service-tile .tile-copy h3{font-size:clamp(8px,1.9vw,12px)!important}
 .service-tiles .service-tile .tile-copy p{font-size:clamp(7px,1.35vw,10px)!important;line-height:1.2!important}
 }
+
+/* Product tiles: fixed desktop composition and a separately composed compact mobile/tablet view */
+.service-tiles .service-tile{grid-template-columns:43% minmax(0,57%)!important;height:116px!important;min-height:116px!important;border:1px solid #666!important;border-radius:9px!important}
+.service-tiles .service-tile .tile-photo{background-size:auto 100%!important;background-position:left center!important;background-repeat:no-repeat!important}
+.service-tiles .service-tile .tile-copy{padding:10px 12px!important;background:#101010!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(12px,1.15vw,17px)!important;line-height:1.15!important;overflow-wrap:normal!important;hyphens:manual!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(10px,.9vw,13px)!important;line-height:1.3!important;hyphens:none!important;overflow-wrap:normal!important}
+.service-tiles .mobile-detail{display:none!important}
+@media(max-width:900px){
+.service-tiles{gap:6px!important}
+.service-tiles .service-tile{grid-template-columns:43% minmax(0,57%)!important;height:88px!important;min-height:88px!important}
+.service-tiles .service-tile .tile-photo{background-size:auto 100%!important;background-position:0 center!important}
+.service-tiles .service-tile .tile-copy{padding:5px 4px!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(8px,1.8vw,12px)!important;letter-spacing:-.15px!important;line-height:1.13!important}
+.service-tiles .service-tile .tile-copy .accent{width:17px!important;margin:5px 0!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(7px,1.5vw,10px)!important;line-height:1.2!important;hyphens:none!important;overflow-wrap:normal!important}
+.service-tiles .desktop-detail{display:none!important}
+.service-tiles .mobile-detail{display:block!important}
+}
 </style>
 </head>
 
@@ -534,9 +553,9 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
  <div class="wrap hero-in"><h1>Autoteile &amp;<br><em>KFZ-Zubehör</em></h1><p class="lead">Qualität. Auswahl. Schnelligkeit.</p><div class="actions"><a class="btn" href="https://wa.me/491783957461" target="_blank" rel="noopener">Jetzt anfragen &nbsp; →</a></div></div>
 </section>
 <section class="category-section" aria-label="Produktbereiche"><div class="wrap service-tiles">
-<article class="service-tile"><div class="tile-photo brake"></div><div class="tile-copy"><h3>Autoteile</h3><div class="accent"></div><p>Ersatzteile für alle gängigen Fahrzeugmarken</p></div></article>
-<article class="service-tile"><div class="tile-photo filters"></div><div class="tile-copy"><h3>Zubehör</h3><div class="accent"></div><p>Filter, Öle, Batterien und vieles mehr</p></div></article>
-<article class="service-tile"><div class="tile-photo tools"></div><div class="tile-copy"><h3>Werkstatt&shy;bedarf</h3><div class="accent"></div><p>Ausrüstung und Verbrauchsmaterial für Profis</p></div></article>
+<article class="service-tile"><div class="tile-photo brake"></div><div class="tile-copy"><h3>Autoteile</h3><div class="accent"></div><p class="desktop-detail">Ersatzteile für alle gängigen Fahrzeugmarken</p><p class="mobile-detail">Für viele Fahrzeugmarken</p></div></article>
+<article class="service-tile"><div class="tile-photo filters"></div><div class="tile-copy"><h3>Zubehör</h3><div class="accent"></div><p class="desktop-detail">Filter, Öle, Batterien und vieles mehr</p><p class="mobile-detail">Filter · Öl · Batterien</p></div></article>
+<article class="service-tile"><div class="tile-photo tools"></div><div class="tile-copy"><h3>Werkstatt&shy;bedarf</h3><div class="accent"></div><p class="desktop-detail">Ausrüstung und Verbrauchsmaterial für Profis</p><p class="mobile-detail">Werkzeug für Profis</p></div></article>
 </div></section>
 <div class="featurebar"><div class="wrap features"><div class="feature"><span class="benefit-icon">◷</span><strong>Schnelle<br>Verfügbarkeit</strong></div><div class="feature"><span class="benefit-icon">✓</span><strong>Große<br>Teileauswahl</strong></div><div class="feature"><span class="benefit-icon">✦</span><strong>Zuverlässiger<br>Service</strong></div><div class="feature"><span class="benefit-icon">▣</span><strong>Für Werkstätten<br>und Händler</strong></div></div></div>
 <section class="warehouse"><div class="wrap warehouse-grid"><div class="warehouse-photo" role="img" aria-label="Autoteilelager"></div><div class="warehouse-details"><article><h3><span>●</span> Unser Standort</h3><p>Brunsbütteler Damm 132–142<br>Halle 5-D<br>13581 Berlin</p></article><article><h3><span>◷</span> Kontakt</h3><p><a href="tel:+491783957461">0178 3957461</a><br><a href="mailto:info@eth-express.de">info@eth-express.de</a></p></article></div></div></section>
