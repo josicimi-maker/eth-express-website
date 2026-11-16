@@ -454,6 +454,17 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 /* Mobile category text legibility: preserve 3-column reference layout */
 .service-tile,.tile-copy{min-width:0}.tile-copy h3,.tile-copy p{overflow-wrap:anywhere;word-break:normal;hyphens:auto}.tile-copy h3{line-height:1.12}.tile-copy p{line-height:1.25}
 @media(max-width:700px){.service-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.service-tile{grid-template-columns:36% minmax(0,64%);min-height:108px;overflow:hidden}.tile-copy{padding:6px 4px;min-width:0}.tile-copy h3{font-size:clamp(9px,2.15vw,12px);letter-spacing:-.2px;overflow-wrap:anywhere}.tile-copy p{font-size:clamp(7px,1.75vw,10px);line-height:1.2;overflow-wrap:anywhere}.tile-copy .accent{margin:5px 0;width:17px}.tile-photo{min-width:0}}
+
+/* Compact product cards: mobile image above label, no squeezed side-by-side copy */
+@media(max-width:700px){
+.service-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:10px 0}
+.service-tile{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:0;border-radius:8px;overflow:hidden}
+.service-tile .tile-photo{height:75px;min-height:75px;width:100%;flex:none;background-position:center}
+.service-tile .tile-copy{flex:1;padding:8px 6px 9px;min-width:0;background:#111}
+.service-tile .tile-copy h3{font-size:clamp(10px,2.7vw,13px);line-height:1.12;letter-spacing:-.15px;overflow-wrap:normal;hyphens:none}
+.service-tile .tile-copy .accent{margin:6px 0;width:20px}
+.service-tile .tile-copy p{font-size:clamp(8px,2vw,10px);line-height:1.25;overflow-wrap:normal;hyphens:auto}
+}
 </style>
 </head>
 
