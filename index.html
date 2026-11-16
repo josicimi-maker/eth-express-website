@@ -534,6 +534,12 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .service-tile .tile-photo.brake::after{background-position:0% 0%!important}
 .service-tiles .service-tile .tile-photo.filters::after{background-position:0% 100%!important}
 .service-tiles .service-tile .tile-photo.tools::after{background-position:100% 100%!important}
+
+/* Reliable fallback: remove broken product sprite crops entirely. */
+.service-tiles .service-tile{grid-template-columns:minmax(0,1fr)!important;background:#171717!important}
+.service-tiles .service-tile .tile-photo,.service-tiles .service-tile .tile-photo::before,.service-tiles .service-tile .tile-photo::after{display:none!important;content:none!important;background-image:none!important}
+.service-tiles .service-tile .tile-copy{width:100%!important;padding:12px 15px!important;background:#171717!important}
+@media(max-width:900px){.service-tiles .service-tile .tile-copy{padding:7px 9px!important}}
 </style>
 </head>
 
