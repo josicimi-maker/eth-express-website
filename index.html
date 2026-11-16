@@ -527,14 +527,15 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .mobile-detail{display:block!important}
 }
 
-/* Product photography: crisp contained subject over softly blurred same-image backdrop */
-.service-tiles .service-tile .tile-photo{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-image:none!important;background-color:#0b0b0b!important}
-.service-tiles .service-tile .tile-photo::before{content:""!important;display:block!important;position:absolute!important;inset:-12%!important;z-index:-2!important;background-image:var(--product-photo)!important;background-size:cover!important;background-position:center!important;filter:blur(13px) brightness(.48)!important;transform:scale(1.08)!important;pointer-events:none!important}
-.service-tiles .service-tile .tile-photo::after{content:""!important;display:block!important;position:absolute!important;inset:9% 7%!important;z-index:-1!important;background-image:var(--product-photo)!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;pointer-events:none!important}
+/* Product tiles: use the product-bearing LEFT HALF of each original composite image.
+   The originals already contain a black text half; never fit the whole image into the photo pane. */
+.service-tiles .service-tile .tile-photo{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-image:none!important;background-color:#101010!important}
+.service-tiles .service-tile .tile-photo::before{content:""!important;display:block!important;position:absolute!important;inset:-10%!important;z-index:0!important;background-image:var(--product-photo)!important;background-size:200% 100%!important;background-position:left center!important;background-repeat:no-repeat!important;filter:blur(9px) brightness(.60)!important;transform:scale(1.12)!important;pointer-events:none!important}
+.service-tiles .service-tile .tile-photo::after{content:""!important;display:block!important;position:absolute!important;inset:0!important;z-index:1!important;background-image:var(--product-photo)!important;background-size:200% 100%!important;background-position:left center!important;background-repeat:no-repeat!important;pointer-events:none!important;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)!important}
 .service-tiles .service-tile .tile-photo.brake{--product-photo:url("assets/83F8F681-AC0E-49ED-A8EB-E41835073465.png")}
 .service-tiles .service-tile .tile-photo.filters{--product-photo:url("assets/9B3AE2DA-CED9-4B03-B492-84FEB6D74337.png")}
 .service-tiles .service-tile .tile-photo.tools{--product-photo:url("assets/E5F78B3D-22E4-4DC1-B6EB-EC205005AA5B.png")}
-@media(max-width:900px){.service-tiles .service-tile .tile-photo::after{inset:12% 5%!important}.service-tiles .service-tile .tile-photo::before{filter:blur(10px) brightness(.44)!important}}
+@media(max-width:900px){.service-tiles .service-tile .tile-photo::before{filter:blur(7px) brightness(.60)!important}}
 </style>
 </head>
 
