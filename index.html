@@ -534,6 +534,15 @@ header .nav-logo{filter:none!important;mix-blend-mode:normal!important;backgroun
 .service-tiles .service-tile .tile-photo.brake::after{background-position:0% 0%!important}
 .service-tiles .service-tile .tile-photo.filters::after{background-position:0% 100%!important}
 .service-tiles .service-tile .tile-photo.tools::after{background-position:100% 100%!important}
+
+/* Refined typography-only product cards, no images or decorative icons. */
+.service-tiles .service-tile{display:flex!important;align-items:stretch!important;position:relative!important;grid-template-columns:none!important;overflow:hidden!important;border:1px solid #414141!important;border-left:3px solid #e31a1a!important;border-radius:10px!important;background:linear-gradient(135deg,#252525 0%,#171717 70%)!important;box-shadow:0 5px 18px rgba(0,0,0,.16)!important}
+.service-tiles .service-tile .tile-photo,.service-tiles .service-tile .tile-photo::before,.service-tiles .service-tile .tile-photo::after{display:none!important;content:none!important}
+.service-tiles .service-tile .tile-copy{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;width:100%!important;min-width:0!important;padding:14px 17px!important;background:transparent!important;overflow:hidden!important}
+.service-tiles .service-tile .tile-copy h3{font-size:clamp(15px,1.55vw,21px)!important;font-weight:800!important;letter-spacing:-.35px!important;line-height:1.15!important;hyphens:none!important}
+.service-tiles .service-tile .tile-copy .accent{height:2px!important;width:28px!important;margin:9px 0!important;background:#ed2020!important}
+.service-tiles .service-tile .tile-copy p{font-size:clamp(11px,1vw,14px)!important;line-height:1.4!important;color:#d4d4d4!important}
+@media(max-width:900px){.service-tiles .service-tile{height:92px!important;min-height:92px!important;border-left-width:3px!important}.service-tiles .service-tile .tile-copy{padding:8px 8px!important}.service-tiles .service-tile .tile-copy h3{font-size:clamp(10px,2.2vw,15px)!important;letter-spacing:-.25px!important}.service-tiles .service-tile .tile-copy .accent{width:20px!important;margin:6px 0!important}.service-tiles .service-tile .tile-copy p{font-size:clamp(8px,1.6vw,11px)!important;line-height:1.3!important}}
 </style>
 </head>
 
